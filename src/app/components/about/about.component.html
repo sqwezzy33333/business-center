@@ -64,7 +64,7 @@
               </div>
             </div>
           </div>
-          <button class="about-statistics__eclipse">
+          <button class="about-statistics__eclipse" (click)="openForm()">
             <div class="about-statistics__full-information">Вся информация</div>
           </button>
         </div>
@@ -73,14 +73,78 @@
   </div>
 </div>
 
-<div class="about-form">
+<div class="about-form" *ngIf="isFormOpen">
   <div class="about-form__wrapper">
     <h2 class="about-form__h2">Оставьте заявку</h2>
     <div class="about-form__text">
       Наш менеджер свяжется с вами для подробной консультации
     </div>
-   
-    <button class="about-form__close-btn">
+    <form action="#" [formGroup]="form" class="about-form__form">
+      <mat-form-field class="about-form__field">
+        <mat-label>Ваше имя</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="form.controls.name"
+          placeholder="Ваше имя"
+        />
+        <mat-error
+          *ngIf="
+            form.controls.email.hasError('min') &&
+            !form.controls.email.hasError('required')
+          "
+        >
+          Заполните поле
+        </mat-error>
+        <mat-error *ngIf="form.controls.email.hasError('required')">
+          Заполните поле
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="about-form__field">
+        <mat-label>Номер телефона</mat-label>
+        <input
+          type="tel"
+          matInput
+          [formControl]="form.controls.phone"
+          placeholder="Номер телефона"
+        />
+        <mat-error
+          *ngIf="
+            form.controls.email.hasError('min') &&
+            !form.controls.email.hasError('required')
+          "
+        >
+          Пожалуйста введите корректный email
+        </mat-error>
+        <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="about-form__field">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          [formControl]="form.controls.email"
+          placeholder="Ex. pat@example.com"
+        />
+        <mat-error
+          *ngIf="
+            form.controls.email.hasError('email') &&
+            !form.controls.email.hasError('required')
+          "
+        >
+          Пожалуйста введите корректный email
+        </mat-error>
+        <mat-error *ngIf="form.controls.email.hasError('required')">
+          Заполните поле
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <button class="about-form__close-btn" (click)="closeForm()">
       <img src="./assets/icons/close.svg" alt="close" />
     </button>
   </div>
