@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,7 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, DiagonalComponent, AboutComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    DiagonalComponent,
+    AboutComponent,
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
