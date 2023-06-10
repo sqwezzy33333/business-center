@@ -1,0 +1,61 @@
+@import "../../../styles/variables.scss";
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  &__wrapper {
+    padding: 16px 0px;
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu-flex {
+    display: flex;
+    align-items: center;
+    margin: 0px -16px;
+  }
+
+  &__menu-item {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0px 16px;
+    transition: all 3s ease-in-out 1s;
+
+    &:hover {
+      text-decoration: underline;
+      color: red;
+      transition: all 3s ease-in-out 1s;
+    }
+  }
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 40px;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.12);
+
+  &__icon {
+    margin-right: 11px;
+  }
+
+  &__number {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: white;
+  }
+}

@@ -1,0 +1,10 @@
+.diagonal {
+  height: 760px;
+  background: url("../../../assets/backgrounds/diagonalBg.jpg") no-repeat;
+  background-size: cover;
+
+  &__color-bg {
+    height: 100%;
+    background: rgba(22, 15, 7, 0.56);
+  }
+}
