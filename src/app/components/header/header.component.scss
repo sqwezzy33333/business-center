@@ -1,14 +1,12 @@
 @import "../../../styles/variables.scss";
 
 .header {
-  position: fixed;
+  z-index: 10;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
 
-  &__wrapper {
-    padding: 16px 0px;
-  }
 
   &__flex {
     display: flex;
@@ -19,7 +17,6 @@
   &__menu-flex {
     display: flex;
     align-items: center;
-    margin: 0px -16px;
   }
 
   &__menu-item {
@@ -29,13 +26,20 @@
     color: white;
     text-transform: uppercase;
     cursor: pointer;
-    margin: 0px 16px;
     transition: all 3s ease-in-out 1s;
+    margin-right: 16px;
 
-    &:hover {
-      text-decoration: underline;
-      color: red;
-      transition: all 3s ease-in-out 1s;
+    &::after {
+      content: "";
+      width: 0px;
+      height: 2px;
+      display: block;
+      background: rgb(255, 255, 255);
+      transition: 300ms;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 }
@@ -48,6 +52,11 @@
   border: 1px solid white;
   background: rgba(255, 255, 255, 0.12);
 
+  &:hover {
+    background: rgba(92, 87, 87, 0.52);
+    transition: 0.3s ease-in-out all;
+  }
+
   &__icon {
     margin-right: 11px;
   }
@@ -57,5 +66,31 @@
     font-weight: 500;
     line-height: 16px;
     color: white;
+  }
+}
+
+@media (min-width: 896px) {
+  .header__small-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 896px) {
+  .header__menu-item {
+    display: none;
+  }
+
+  .header__big-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 363px) {
+  .header-phone {
+    padding: 10px 8px;
+
+    &__icon {
+      margin-right: 8px;
+    }
   }
 }

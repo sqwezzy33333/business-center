@@ -1,5 +1,59 @@
 <div class="diagonal">
   <div class="diagonal__color-bg">
-    
+    <div class="container diagonal__container">
+      <div class="diagonal__wrapper">
+        <div class="diagonal__flex">
+          <div class="diagonal__slogan diagonal-slogan">
+            <div class="diagonal-slogan__place">
+              <div class="diagonal-slogan__icon">
+                <img src="./assets/icons/place.svg" alt="place-icon" />
+              </div>
+
+              <span class="diagonal-slogan__address">
+                г. Брест, ул. Московская, 275А
+              </span>
+            </div>
+            <h1 class="diagonal-slogan__h1">
+              Диагональ — самый близкий путь к успеху
+            </h1>
+          </div>
+
+          <div class="diagonal__info diagonal-info">
+            <div class="diagonal-info__text">
+              Равным образом постоянный количественный рост и сфера нашей
+              активности требуют от нас анализа модели развития.
+            </div>
+            <button class="diagonal-info__cooperation-button">
+              <span class="diagonal-info__span">Обсудить сотрудничество</span>
+              <div class="diagonal-info__icon">
+                <img src="./assets/icons/rightArrow.svg" alt="right-arrow" />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <form class="diagonal__slider diagonal-slider">
+          <div
+            *ngFor="let item of sliderArray"
+            class="diagonal-slider__btn-wrapper"
+          >
+            <input
+              class="displayNone"
+              id="diagonal-radio-btns_1"
+              type="radio"
+              name="diagonal-radio-btns"
+              [value]="item.value"
+            />
+            <label
+              [ngClass]="{ daigonalSliderChecked: item.checked }"
+              (click)="checkSlider(item)"
+              for="diagonal-radio-btns_1"
+              value="1"
+              class="diagonal-slider__btn"
+            ></label>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

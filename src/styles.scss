@@ -8,10 +8,16 @@ html {
 
 body {
   font-family: Montserrat;
-  height: 100%;
 }
 
-.container{
+.container {
   max-width: 1128px;
   margin: 0 auto;
+}
+
+@media (max-width: 1148px) {
+  .container {
+    max-width: auto;
+    padding: 0px 10px;
+  }
 }

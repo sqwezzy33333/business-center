@@ -5,16 +5,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DiagonalComponent } from './components/diagonal/diagonal.component';
 
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    DiagonalComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, HeaderComponent, DiagonalComponent, AboutComponent],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

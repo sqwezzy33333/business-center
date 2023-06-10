@@ -1,10 +1,171 @@
 .diagonal {
-  height: 760px;
   background: url("../../../assets/backgrounds/diagonalBg.jpg") no-repeat;
   background-size: cover;
+  color: white;
 
   &__color-bg {
     height: 100%;
     background: rgba(22, 15, 7, 0.56);
+  }
+
+  &__flex {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__container {
+    padding: 371px 0px 40px 0px;
+  }
+}
+
+.diagonal-slogan {
+  display: flex;
+  flex-direction: column;
+  &__place {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  &__icon {
+    margin-right: 8px;
+  }
+
+  &__address {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
+  &__h1 {
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 60px;
+    max-width: 567px;
+  }
+}
+
+.diagonal-info {
+  max-width: 328px;
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+
+  &__cooperation-button {
+    padding: 6px 6px 6px 24px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 90, 31, 1);
+    border-radius: 60px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(254, 67, 0, 1);
+    }
+  }
+
+  &__span {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+
+  &__icon {
+    padding: 11px 13px 12px 13px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.diagonal-slider {
+  display: flex;
+  width: 112px;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 116px;
+
+  &__btn {
+    width: 32px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 10px;
+      background-color: white;
+      cursor: pointer;
+      position: absolute;
+      width: 32px;
+      height: 4px;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__btn-wrapper {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.daigonalSliderChecked {
+  &::after {
+    background: rgba(254, 67, 0, 1);
+  }
+}
+
+.displayNone {
+  display: none;
+}
+
+@media (max-width: 982px) {
+  .diagonal__container {
+    padding: 171px 0px 40px 0px;
+  }
+}
+
+@media (max-width: 830px) {
+  .diagonal__flex {
+    flex-wrap: wrap;
+    padding-left: 15px;
+  }
+
+  .diagonal-slogan {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 625px) {
+  .diagonal-slider {
+    margin-top: 40px;
+  }
+
+  .diagonal-slogan__h1 {
+    font-size: 32px;
+    line-height: 39px;
+    max-width: 320px;
+  }
+
+  .diagonal-info__text {
+    font-size: 14px;
+  }
+
+  .diagonal__container {
+    padding: 130px 0px 24px 0px;
   }
 }
