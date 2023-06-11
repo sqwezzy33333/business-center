@@ -79,7 +79,13 @@
     <div class="about-form__text">
       Наш менеджер свяжется с вами для подробной консультации
     </div>
-    <form action="#" [formGroup]="form" class="about-form__form">
+    <form
+      action="#"
+      [formGroup]="form"
+      id="about-form"
+      (submit)="check()"
+      class="about-form__form"
+    >
       <mat-form-field class="about-form__field">
         <mat-label>Ваше имя</mat-label>
         <input
@@ -90,13 +96,13 @@
         />
         <mat-error
           *ngIf="
-            form.controls.email.hasError('min') &&
-            !form.controls.email.hasError('required')
+            form.controls.name.hasError('minlength') &&
+            !form.controls.name.hasError('required')
           "
         >
-          Заполните поле
+          Слишком короткое имя
         </mat-error>
-        <mat-error *ngIf="form.controls.email.hasError('required')">
+        <mat-error *ngIf="form.controls.name.hasError('required')">
           Заполните поле
         </mat-error>
       </mat-form-field>
@@ -104,21 +110,22 @@
       <mat-form-field class="about-form__field">
         <mat-label>Номер телефона</mat-label>
         <input
-          type="tel"
+          type="number"
           matInput
           [formControl]="form.controls.phone"
           placeholder="Номер телефона"
+          class="about-phone-field"
         />
         <mat-error
           *ngIf="
-            form.controls.email.hasError('min') &&
-            !form.controls.email.hasError('required')
+            form.controls.phone.hasError('minlength') &&
+            !form.controls.phone.hasError('required')
           "
         >
-          Пожалуйста введите корректный email
+          Пожалуйста введите корректный телефон
         </mat-error>
-        <mat-error *ngIf="form.controls.email.hasError('required')">
-          Email is <strong>required</strong>
+        <mat-error *ngIf="form.controls.phone.hasError('required')">
+          Заполните поле
         </mat-error>
       </mat-form-field>
 
@@ -144,7 +151,17 @@
       </mat-form-field>
     </form>
 
-    <button class="about-form__close-btn" (click)="closeForm()">
+    <button type="submit" form="about-form" class="about-submit__button">
+      <span class="about-submit__span">Отправить заявку</span>
+      <div class="about-submit__icon">
+        <img src="./assets/icons/rightArrow.svg" alt="right-arrow" />
+      </div>
+    </button>
+
+    <button
+      class="about-form__close-btn"
+      (click)="closeForm()"
+    >
       <img src="./assets/icons/close.svg" alt="close" />
     </button>
   </div>

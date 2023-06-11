@@ -8,12 +8,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AboutComponent {
   isFormOpen: boolean = false;
+  emptyNum!: number;
 
   form = new FormGroup({
-    name: new FormControl<string>('', [Validators.required, Validators.min(3)]),
-    phone: new FormControl<number>(375, [
+    name: new FormControl<string>('', [
       Validators.required,
-      Validators.min(13),
+      Validators.minLength(3),
+    ]),
+    phone: new FormControl<number>(this.emptyNum, [
+      Validators.required,
+      Validators.minLength(12),
     ]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
   });
@@ -24,5 +28,9 @@ export class AboutComponent {
 
   closeForm(): void {
     this.isFormOpen = false;
+  }
+
+  check() {
+    console.log(this.form.valid);
   }
 }
