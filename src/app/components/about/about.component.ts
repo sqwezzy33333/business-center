@@ -18,6 +18,7 @@ export class AboutComponent {
     phone: new FormControl<number>(this.emptyNum, [
       Validators.required,
       Validators.minLength(12),
+      Validators.pattern(/^-?(0|[1-9]\d*)?$/),
     ]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
   });
@@ -30,7 +31,10 @@ export class AboutComponent {
     this.isFormOpen = false;
   }
 
-  check() {
-    console.log(this.form.valid);
+  submitForm() {
+    if (this.form.valid) {
+      console.log(this.form.value);
+      this.isFormOpen = false;
+    }
   }
 }

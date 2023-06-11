@@ -83,7 +83,7 @@
       action="#"
       [formGroup]="form"
       id="about-form"
-      (submit)="check()"
+      (submit)="submitForm()"
       class="about-form__form"
     >
       <mat-form-field class="about-form__field">
@@ -110,7 +110,7 @@
       <mat-form-field class="about-form__field">
         <mat-label>Номер телефона</mat-label>
         <input
-          type="number"
+          type="tel"
           matInput
           [formControl]="form.controls.phone"
           placeholder="Номер телефона"
