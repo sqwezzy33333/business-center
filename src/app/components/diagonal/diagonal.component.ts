@@ -12,22 +12,35 @@ type Slider = {
 })
 export class DiagonalComponent implements OnInit {
   ngOnInit(): void {
-    this.makeSlider();
+    setInterval(() => {
+      this.slide();
+    }, 2000);
   }
 
-  currentIndex!: number;
+  slideNumber = 1;
 
-  sliderArray: Slider[] = [
-    { value: 1, checked: true },
-    { value: 2, checked: false },
-    { value: 3, checked: false },
+  background: string = `"../../../assets/backgrounds/diagonal${this.slideNumber}.jpg"`;
+
+  slides = [
+    {
+      src: '',
+      id: 1,
+    },
+    {
+      src: '',
+      id: 2,
+    },
+    {
+      src: '',
+      id: 3,
+    },
   ];
 
-  makeSlider() {
-    let a = 1;
-    setTimeout(() => {
-      this.sliderArray[a].checked = true;
-      a++;
-    }, 2000);
+  slideLinesArray: number[] = [1, 2, 3];
+
+  slide() {
+    if (this.slideNumber === 3) this.slideNumber = 0;
+    this.slideNumber++;
+    this.background = `"../../../assets/backgrounds/diagonal${this.slideNumber}.jpg"`;
   }
 }

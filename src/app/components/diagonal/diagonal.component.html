@@ -1,4 +1,7 @@
-<div class="diagonal">
+<div
+  class="diagonal"
+  [ngStyle]="{ 'background-image': 'url(' + background + ')' }"
+>
   <div class="diagonal__color-bg">
     <div class="container diagonal__container">
       <div class="diagonal__wrapper">
@@ -31,27 +34,13 @@
             </button>
           </div>
         </div>
-
-        <form class="diagonal__slider diagonal-slider">
+        <div class="diagonal-slider">
           <div
-            *ngFor="let item of sliderArray"
-            class="diagonal-slider__btn-wrapper"
-          >
-            <input
-              class="displayNone"
-              id="diagonal-radio-btns_1"
-              type="radio"
-              name="diagonal-radio-btns"
-              [value]="item.value"
-            />
-            <label
-              [ngClass]="{ daigonalSliderChecked: item.checked }"
-              for="diagonal-radio-btns_1"
-              value="1"
-              class="diagonal-slider__btn"
-            ></label>
-          </div>
-        </form>
+            *ngFor="let item of slideLinesArray"
+            [ngClass]="{ daigonalSliderChecked: item === slideNumber }"
+            class="diagonal-slider__line"
+          ></div>
+        </div>
       </div>
     </div>
   </div>

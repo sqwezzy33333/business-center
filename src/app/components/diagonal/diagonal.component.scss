@@ -1,7 +1,10 @@
 .diagonal {
-  background: url("../../../assets/backgrounds/diagonalBg.jpg") no-repeat;
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+
   color: white;
+  transition: background 0.5s ease 0.3s;
 
   &__color-bg {
     height: 100%;
@@ -95,11 +98,12 @@
   margin: 0 auto;
   margin-top: 116px;
 
-  &__btn {
+  &__line {
     width: 32px;
     height: 18px;
     position: relative;
     cursor: pointer;
+    transition: al 0.5s ease 0.3s;
 
     &::after {
       content: "";
@@ -113,13 +117,6 @@
       bottom: 0;
       left: 0;
     }
-  }
-
-  &__btn-wrapper {
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 
