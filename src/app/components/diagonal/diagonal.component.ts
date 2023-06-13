@@ -14,12 +14,12 @@ export class DiagonalComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       this.slide();
-    }, 2000);
+    }, 2500);
   }
 
   slideNumber = 1;
 
-  background: string = `"../../../assets/backgrounds/diagonal${this.slideNumber}.jpg"`;
+  background: string = `"../../../assets/diagonal-backgrounds/${this.slideNumber}.jpg"`;
 
   slides = [
     {
@@ -41,6 +41,6 @@ export class DiagonalComponent implements OnInit {
   slide() {
     if (this.slideNumber === 3) this.slideNumber = 0;
     this.slideNumber++;
-    this.background = `"../../../assets/backgrounds/diagonal${this.slideNumber}.jpg"`;
+    this.background = `"../../../assets/diagonal-backgrounds/${this.slideNumber}.jpg"`;
   }
 }

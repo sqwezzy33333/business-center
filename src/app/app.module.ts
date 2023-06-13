@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MaxValueLengthPipe } from './pipes/max-value-length.pipe';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     HeaderComponent,
     DiagonalComponent,
     AboutComponent,
+    MaxValueLengthPipe,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,

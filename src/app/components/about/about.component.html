@@ -27,44 +27,26 @@
 
         <div class="about-content__statistics about-statistics">
           <div class="about-statistics__info">
-            <div class="about-statistics__row">
-              <div class="about-statistics__item">
+            <div class="about-statistics__grid-container">
+              <div
+                class="about-statistics__item"
+                *ngFor="let item of statistics"
+              >
                 <div class="about-statistics__params">
-                  <span class="about-statistics__number">6000</span
-                  ><span class="about-statistics__measure">м2</span>
-                </div>
-                <div class="about-statistics__text-span">Площадь комплекса</div>
-              </div>
-
-              <div class="about-statistics__item">
-                <div class="about-statistics__params">
-                  <span class="about-statistics__number">0,75</span
-                  ><span class="about-statistics__measure">Га</span>
+                  <span class="about-statistics__number">{{
+                    item.value | maxLength : item.valueLenght
+                  }}</span
+                  ><span class="about-statistics__measure">{{
+                    item.measure
+                  }}</span>
                 </div>
                 <div class="about-statistics__text-span">
-                  Площадь земельного участка
+                  {{ item.parameter }}
                 </div>
-              </div>
-            </div>
-
-            <div class="about-statistics__row" style="margin: 0">
-              <div class="about-statistics__item">
-                <div class="about-statistics__params">
-                  <span class="about-statistics__number">100</span>
-                </div>
-                <div class="about-statistics__text-span">Машиномест</div>
-              </div>
-
-              <div class="about-statistics__item">
-                <div class="about-statistics__params">
-                  <span class="about-statistics__number">6000</span
-                  ><span class="about-statistics__measure">гА</span>
-                </div>
-                <div class="about-statistics__text-span">Площадь комплекса</div>
               </div>
             </div>
           </div>
-          <button class="about-statistics__eclipse" (click)="openForm()">
+          <button class="about-statistics__button" (click)="openForm()">
             <div class="about-statistics__full-information">Вся информация</div>
           </button>
         </div>
@@ -158,11 +140,13 @@
       </div>
     </button>
 
-    <button
-      class="about-form__close-btn"
-      (click)="closeForm()"
-    >
+    <button class="about-form__close-btn" (click)="closeForm()">
       <img src="./assets/icons/close.svg" alt="close" />
     </button>
+
+    <span class="about-form__politics"
+      >Отправляя заявку, вы соглашаетесь с
+      <span class="underline">политикой конфиденциальности</span>
+    </span>
   </div>
 </div>
