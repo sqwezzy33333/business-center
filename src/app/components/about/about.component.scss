@@ -66,16 +66,10 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  &__item {
-    flex: 0 0 50%;
-
-    margin-bottom: 51px;
-  }
-
   &__grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 50px;
+    grid-gap: 50px;
   }
 
   &__params {
@@ -237,7 +231,6 @@
   }
 }
 
-
 .underline {
   text-decoration: underline;
 }
@@ -278,14 +271,11 @@
   }
 
   .about-statistics {
-    &__item:last-child {
-      margin: 0;
-    }
+    align-items: flex-end;
   }
 }
 
 @media (max-width: 524px) {
-
   .about-form {
     padding-top: 80px;
     align-items: flex-start;
@@ -299,6 +289,7 @@
 
 @media (max-width: 453px) {
   .about-statistics {
+    align-items: flex-start;
     flex-direction: column;
 
     &__button {
@@ -331,11 +322,11 @@
     right: 5px;
   }
 
-  .about-form__h2{
+  .about-form__h2 {
     font-size: 26px;
   }
 
-  .about-form__text{
+  .about-form__text {
     margin-bottom: 10px;
   }
 }

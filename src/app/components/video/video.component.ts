@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-video',
+  selector: 'lending-video',
   templateUrl: './video.component.html',
-  styleUrls: ['./video.component.scss']
+  styleUrls: ['./video.component.scss'],
 })
 export class VideoComponent {
+  isPlayerOpen: boolean = false;
 
+  openVideo() {
+    this.isPlayerOpen = true;
+  }
+
+  closePlayWindow() {
+    this.isPlayerOpen = false;
+  }
 }
