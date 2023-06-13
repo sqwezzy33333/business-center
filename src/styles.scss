@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 @import "./styles/normalize.scss";
 @import "./styles/theme.css";
+@import './styles/variables.scss';
 
 html {
   height: 100%;
@@ -22,3 +23,9 @@ body {
     padding: 0px 10px;
   }
 }
+
+
+.orange{
+  color: $orangeColor;
+}
+

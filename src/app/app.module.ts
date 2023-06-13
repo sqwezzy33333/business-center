@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MaxValueLengthPipe } from './pipes/max-value-length.pipe';
 import { VideoComponent } from './components/video/video.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { VideoComponent } from './components/video/video.component';
     AboutComponent,
     MaxValueLengthPipe,
     VideoComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
