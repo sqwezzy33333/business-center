@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 @import "./styles/normalize.scss";
 @import "./styles/theme.css";
-@import './styles/variables.scss';
+@import "./styles/variables.scss";
 
 html {
   height: 100%;
@@ -12,10 +12,18 @@ body {
   font-family: Montserrat;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .container {
   max-width: 1128px;
   margin: 0 auto;
   padding: 0px 10px;
+}
+
+.orange {
+  color: $orangeColor;
 }
 
 // @media (max-width: 1148px) {
@@ -48,9 +56,3 @@ body {
 //     width: 100%;
 //   }
 // }
-
-
-.orange{
-  color: $orangeColor;
-}
-

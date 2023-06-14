@@ -12,6 +12,7 @@ import { MaxValueLengthPipe } from './pipes/max-value-length.pipe';
 import { VideoComponent } from './components/video/video.component';
 import { MapComponent } from './components/map/map.component';
 import { AdvantagesComponent } from './components/advantages/advantages.component';
+import { PartnershipComponent } from './components/partnership/partnership.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AdvantagesComponent } from './components/advantages/advantages.componen
     VideoComponent,
     MapComponent,
     AdvantagesComponent,
+    PartnershipComponent,
   ],
   imports: [
     BrowserModule,

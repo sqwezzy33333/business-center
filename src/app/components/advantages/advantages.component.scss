@@ -77,6 +77,12 @@
   }
 }
 
+@media (max-width: 972px) {
+  .advantages {
+    padding: 0px 0px 120px 0px;
+  }
+}
+
 @media (max-width: 772px) {
   .advantages__wrapper {
     flex-direction: column;
@@ -109,7 +115,4 @@
     }
   }
 
-  .advantages {
-    padding: 80px 0px;
-  }
 }

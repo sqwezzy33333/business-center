@@ -54,10 +54,10 @@ export class AboutComponent implements OnInit {
       Validators.required,
       Validators.minLength(3),
     ]),
-    phone: new FormControl<number>(this.emptyNum, [
+    phone: new FormControl<string>('+375', [
       Validators.required,
       Validators.minLength(12),
-      Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+      Validators.pattern(/^-?(0|[1-9,+]\d*)?$/),
     ]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
   });

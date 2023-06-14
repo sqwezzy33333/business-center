@@ -3,3 +3,9 @@
   flex-direction: column;
   height: 100%;
 }
+
+@media (max-width: 972px) {
+  #partnership {
+    display: none;
+  }
+}
