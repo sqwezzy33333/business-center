@@ -11,6 +11,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MaxValueLengthPipe } from './pipes/max-value-length.pipe';
 import { VideoComponent } from './components/video/video.component';
 import { MapComponent } from './components/map/map.component';
+import { AdvantagesComponent } from './components/advantages/advantages.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MapComponent } from './components/map/map.component';
     MaxValueLengthPipe,
     VideoComponent,
     MapComponent,
+    AdvantagesComponent,
   ],
   imports: [
     BrowserModule,

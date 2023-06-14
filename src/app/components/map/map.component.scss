@@ -7,7 +7,7 @@
     justify-content: space-between;
   }
 
-  &__padding{
+  &__padding {
     padding: 120px 0px;
   }
 
@@ -112,7 +112,6 @@
   }
 }
 
-
 .activeRadioBtn {
   background-color: #fe43001f;
 
@@ -121,25 +120,37 @@
   }
 }
 
-
-@media (max-width: 800px){
-  .map__text-wrapper{
+@media (max-width: 800px) {
+  .map__text-wrapper {
     flex-direction: column;
   }
 
-  .map__content{
+  .map__content {
     order: 2;
-
   }
 
-  .map__rotated-text{
+  .map__rotated-text {
     order: 1;
     margin-bottom: 16px;
   }
 
-  .rotated-text__wrapper{
+  .rotated-text__wrapper {
     top: 0;
     left: 0;
     transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 453px) {
+  .map__title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+  }
+}
+
+@media (max-width: 688px) {
+  .map__padding{
+    padding: 80px 0px;
   }
 }

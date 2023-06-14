@@ -1,0 +1,28 @@
+<div class="advantages">
+  <div class="container">
+    <div class="advantages__wrapper">
+      <div class="advantages__rotated-block">
+        <div class="advantages__rotated-block-wrapper">
+          <div class="advantages__line"></div>
+          <div class="advantages__rotated-text">Преимущества</div>
+        </div>
+      </div>
+      <div class="advantages__content">
+        <h2 class="advantages__h2">
+          Пару слов о <span class="orange">преимуществах</span> в две строки
+        </h2>
+        <div class="advantages__list">
+          <div class="advantages__item" *ngFor="let item of advantages">
+            <div class="advantages__item-img">
+              <img [src]="item.imgSrc" alt="icon" />
+            </div>
+            <div class="advantages__item-text">
+              <h3 class="advantages__item-h3">{{ item.title }}</h3>
+              <div class="advantages__item-info-text">{{ item.text }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,16 @@
 @import "../../../styles/variables.scss";
 
-.header {
-  z-index: 10;
+
+:host{
+
   position: absolute;
   width: 100%;
-  top: 0;
-  left: 0;
+}
+
+.header {
+  z-index: 10;
+  position: relative;
+  width: 100%;
 
 
   &__flex {
