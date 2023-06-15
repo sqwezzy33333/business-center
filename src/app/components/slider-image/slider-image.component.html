@@ -1,0 +1,79 @@
+<div class="slider-image">
+  <div class="container" #container>
+    <div class="slider-image__padding">
+      <div class="slider-image__text-wrapper" style="margin-bottom: 40px">
+        <div class="slider-image__content">
+          <h1 class="slider-image__title">
+            Здесь есть все для
+            <span class="orange"
+              >комфортной <br />
+              работы</span
+            >
+          </h1>
+        </div>
+
+        <div class="slider-image__rotated-text rotated-text">
+          <div class="rotated-text__wrapper">
+            <div class="rotated-text__line"></div>
+            <span class="rotated-text__span">Галлерея</span>
+          </div>
+        </div>
+      </div>
+      <div class="slider-image__wrapper">
+        <div class="slider-image__radio-buttons">
+          <div
+            class="slider-image__range-field"
+            *ngFor="let item of rangeFields"
+          >
+            <div
+              [ngClass]="{ activeRadioBtn: item.isChecked }"
+              class="slider-image__radio-label"
+              (click)="checkType(item.whatImage)"
+            >
+              <div class="slider-image__radio-icon">
+                <img [src]="item.iconSrc" alt="" />
+              </div>
+              <span class="slider-image__radio-span">{{ item.spanText }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-image__slider slider">
+        <div class="slider__wrapper">
+          <div class="slider__items" #item>
+            <div
+              class="slider__item"
+              *ngFor="let imageSrc of getArrayOfImages()[0].src"
+            >
+              <img [src]="imageSrc" alt="" />
+            </div>
+          </div>
+          <div class="slider__panel">
+            <button
+              class="slider__btn"
+              [disabled]="indexOfSlider === 1"
+              (click)="prevSlide()"
+              style="left: 32px"
+            >
+              <img src="./assets/icons/slider-left.svg" alt="prev" />
+            </button>
+            <button
+              [disabled]="indexOfSlider === 5"
+              class="slider__btn"
+              (click)="nextSlide()"
+              style="right: 32px"
+            >
+              <img src="./assets/icons/slider-right.svg" alt="next" />
+            </button>
+          </div>
+          <div class="slider__counters">
+            <span class="orange">{{indexOfSlider}}</span>
+            <span class="orange">/</span>
+            <span>5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

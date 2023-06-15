@@ -26,6 +26,5 @@ export class MapComponent {
       el.isChecked = false;
       if (el.placeType === type) el.isChecked = true;
     });
-    console.log(this.rangeFields);
   }
 }

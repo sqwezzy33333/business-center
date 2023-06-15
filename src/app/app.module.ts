@@ -13,6 +13,7 @@ import { VideoComponent } from './components/video/video.component';
 import { MapComponent } from './components/map/map.component';
 import { AdvantagesComponent } from './components/advantages/advantages.component';
 import { PartnershipComponent } from './components/partnership/partnership.component';
+import { SliderImageComponent } from './components/slider-image/slider-image.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PartnershipComponent } from './components/partnership/partnership.compo
     MapComponent,
     AdvantagesComponent,
     PartnershipComponent,
+    SliderImageComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,15 +14,18 @@ export class PartnershipComponent {
       Validators.required,
       Validators.minLength(3),
     ]),
-    phone: new FormControl<string>('', [
+    phone: new FormControl<string>('+375', [
       Validators.required,
-      Validators.minLength(12),
+      Validators.minLength(13),
       Validators.pattern(/^-?(0|[1-9,+]\d*)?$/),
     ]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
   });
 
   submitForm() {
+
+    console.log('sdsd')
+
     if (this.form.valid) {
       console.log(this.form.value);
     }
