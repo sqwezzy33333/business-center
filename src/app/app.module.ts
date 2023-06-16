@@ -14,6 +14,7 @@ import { MapComponent } from './components/map/map.component';
 import { AdvantagesComponent } from './components/advantages/advantages.component';
 import { PartnershipComponent } from './components/partnership/partnership.component';
 import { SliderImageComponent } from './components/slider-image/slider-image.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SliderImageComponent } from './components/slider-image/slider-image.com
     AdvantagesComponent,
     PartnershipComponent,
     SliderImageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

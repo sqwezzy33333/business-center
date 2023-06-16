@@ -40,6 +40,7 @@ export class SliderImageComponent implements OnInit, AfterViewInit {
       iconSrc: './assets/icons/infrastructure.svg',
     },
   ];
+
   sliderImages: Slider[] = [
     {
       whatImage: 'facade',

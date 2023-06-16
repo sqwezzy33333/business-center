@@ -1,0 +1,74 @@
+.footer {
+  padding: 80px 0px 32px 0px;
+  background: #160f07;
+  background-image: url('../../../assets/footerBg.png');
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+
+  &__h2 {
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 49px;
+    max-width: 552px;
+    margin-bottom: 32px;
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__ul {
+    padding-left: 15px;
+    margin-bottom: 98px;
+  }
+
+  &__li {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 8px;
+  }
+
+  &__li:last-child {
+    margin-bottom: 32px;
+  }
+
+  &__protected {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: white;
+  }
+
+  &__cooperation-button {
+    padding: 6px 6px 6px 24px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 90, 31, 1);
+    border-radius: 60px;
+    transition: all 0.3s ease;
+    margin-top: 32px;
+
+    &:hover {
+      background: rgba(254, 67, 0, 1);
+    }
+  }
+
+  &__span {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+
+  &__icon {
+    padding: 11px 13px 12px 13px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}

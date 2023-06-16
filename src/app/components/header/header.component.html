@@ -31,10 +31,13 @@
 
         <nav class="header__menu">
           <ul class="header__menu-flex">
-            <li class="header__menu-item">О проекте</li>
-            <li class="header__menu-item">Расположение</li>
-            <li class="header__menu-item">Преимущества</li>
-            <li class="header__menu-item">Галлерея</li>
+            <li
+              class="header__menu-item"
+              *ngFor="let item of menuItems"
+              (click)="call(item.componentName)"
+            >
+              {{ item.text }}
+            </li>
             <li>
               <button class="header-phone">
                 <div class="header-phone__icon">
