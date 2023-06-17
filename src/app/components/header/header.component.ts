@@ -5,7 +5,7 @@ import { ScrollService } from 'src/app/services/scroll.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   menuItems = [
     {
       text: 'О проекте',
@@ -25,9 +25,19 @@ export class HeaderComponent {
     },
   ];
 
+  isHeaderWhite = false;
+
   constructor(private scrollService: ScrollService) {}
 
-  call(componentName: string) {
-   this.scrollService.selectedComponentName.next(componentName)
+  ngOnInit(): void {
+    this.scrollService.isDiagonalCompInView.subscribe(
+      (el) =>{
+        this.isHeaderWhite = !el
+      }
+    );
+  }
+
+  setSellectedComp(componentName: string) {
+    this.scrollService.selectedComponentName.next(componentName);
   }
 }

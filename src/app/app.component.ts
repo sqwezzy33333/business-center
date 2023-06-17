@@ -17,8 +17,7 @@ interface ComponentNameElement {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
-  title = 'business-center';
+export class AppComponent implements AfterViewInit, OnInit {
   @ViewChild('content', { read: ElementRef })
   content!: ElementRef;
   contentComponentsArray!: HTMLElement[];
@@ -26,7 +25,24 @@ export class AppComponent implements AfterViewInit {
   selectedComponentName!: string;
   selectedElement!: HTMLElement;
 
+  get diagonalComponentParams() {
+    return this.componentsNameElement[0].element.getBoundingClientRect();
+  }
+
+  get aboutComponentParams() {
+    return this.componentsNameElement[0].element.getBoundingClientRect();
+  }
+
   constructor(private scrollService: ScrollService) {}
+
+  ngOnInit(): void {
+    window.addEventListener('scroll', () => {
+      this.scrollService.isDiagonalCompInView.next(this.isDiagonalCompInView());
+      this.scrollService.isAboutBlockInView.next(
+        this.aboutComponentParams.y * -1 > 650
+      );
+    });
+  }
 
   ngAfterViewInit(): void {
     this.contentComponentsArray = Array.from(
@@ -43,7 +59,10 @@ export class AppComponent implements AfterViewInit {
       if (el) {
         this.selectedElement = this.getSelectedElement(el);
         console.log(this.selectedElement);
-        this.selectedElement.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        this.selectedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
       }
     });
   }
@@ -51,5 +70,17 @@ export class AppComponent implements AfterViewInit {
   getSelectedElement(name: string) {
     return this.componentsNameElement.filter((el) => el.name === name)[0]
       .element;
+  }
+
+  isDiagonalCompInView(): boolean {
+    if (
+      this.diagonalComponentParams.y +
+        this.diagonalComponentParams.height -
+        10 >
+      0
+    ) {
+      return true;
+    }
+    return false;
   }
 }

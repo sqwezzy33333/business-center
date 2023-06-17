@@ -15,6 +15,7 @@ import { AdvantagesComponent } from './components/advantages/advantages.componen
 import { PartnershipComponent } from './components/partnership/partnership.component';
 import { SliderImageComponent } from './components/slider-image/slider-image.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormWindowComponent } from './components/form-window/form-window.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PartnershipComponent,
     SliderImageComponent,
     FooterComponent,
+    FormWindowComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 .footer {
   padding: 80px 0px 32px 0px;
   background: #160f07;
-  background-image: url('../../../assets/footerBg.png');
+  background-image: url("../../../assets/footerBg.png");
   background-repeat: no-repeat;
   background-position: 100% 50%;
 
@@ -40,6 +40,8 @@
     font-weight: 400;
     line-height: 16px;
     color: white;
+    opacity: 0.56;
+    margin-bottom: 16px;
   }
 
   &__cooperation-button {
@@ -70,5 +72,35 @@
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (max-width: 1037px) {
+  .footer__ul {
+    margin-bottom: 258px;
+  }
+
+  .footer {
+    background-position: 100% 80%;
+  }
+}
+
+@media (max-width: 844px) {
+  .footer {
+    background-size: 60%;
+  }
+}
+
+@media (max-width: 689px) {
+  .footer {
+    background-image: url("../../../assets/footerBgSmall.png");
+    background-size: auto;
+    padding: 64px 0px 32px 0px;
+
+    &__h2 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 24px;
+    }
   }
 }

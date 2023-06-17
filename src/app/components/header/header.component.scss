@@ -1,17 +1,16 @@
 @import "../../../styles/variables.scss";
 
-
-:host{
-
-  position: absolute;
+:host {
+  position: fixed;
   width: 100%;
+  z-index: 22;
 }
 
 .header {
   z-index: 10;
   position: relative;
   width: 100%;
-
+  padding: 20px 0px;
 
   &__flex {
     display: flex;
@@ -31,7 +30,6 @@
     color: white;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 3s ease-in-out 1s;
     margin-right: 16px;
 
     &::after {
@@ -72,6 +70,30 @@
     line-height: 16px;
     color: white;
   }
+}
+
+.blackText {
+  li,
+  div {
+    color: black !important;
+  }
+
+  .header-phone{
+    background-color: white;
+
+    &:hover{
+      border: 1px solid black;
+    }
+  }
+
+  .header__menu-item::after{
+    background: rgb(0, 0, 0);
+  }
+}
+
+.whiteBg {
+  background-color: rgba($color: #ffffff, $alpha: 0.72);
+  backdrop-filter: blur(10px);
 }
 
 @media (min-width: 896px) {

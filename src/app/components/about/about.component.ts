@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { takeWhile } from 'rxjs';
+import { ScrollService } from 'src/app/services/scroll.service';
 
 interface Statistics {
   value: number;
@@ -14,10 +16,21 @@ interface Statistics {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
+  constructor(private scrollService: ScrollService) {}
+
   ngOnInit(): void {
-    this.increaseValues();
+    this.scrollService.isAboutBlockInView
+      .pipe(takeWhile(() => !this.canIncreaseFunc))
+      .subscribe((el) => {
+        if (el === true) {
+          this.increaseValues();
+
+          this.canIncreaseFunc = true;
+        }
+      });
   }
 
+  canIncreaseFunc!: boolean;
   isFormOpen: boolean = false;
   emptyNum!: number;
   time: number = 2000;
@@ -97,7 +110,7 @@ export class AboutComponent implements OnInit {
     }, t);
   }
 
-  increaseValues(): void {
+  increaseValues() {
     this.statistics.forEach((el: Statistics) => {
       this.outNum(el);
     });
