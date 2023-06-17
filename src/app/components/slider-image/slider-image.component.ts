@@ -25,13 +25,13 @@ export class SliderImageComponent implements OnInit, AfterViewInit {
       whatImage: 'facade',
       isChecked: true,
       spanText: 'фасад',
-      iconSrc: './assets/icons/place.svg',
+      iconSrc: './assets/icons/infrastructure.svg',
     },
     {
       whatImage: 'inter',
       isChecked: false,
       spanText: 'Интерьер общих зон',
-      iconSrc: './assets/icons/infrastructure.svg',
+      iconSrc: './assets/icons/place.svg',
     },
     {
       whatImage: 'parking',

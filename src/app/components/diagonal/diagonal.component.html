@@ -1,6 +1,7 @@
 <div
   class="diagonal"
   [ngStyle]="{ 'background-image': 'url(' + background + ')' }"
+  style="transition: background-image 0.5s ease-in-out 0.3s"
 >
   <div class="diagonal__color-bg">
     <div class="container diagonal__container">
@@ -26,7 +27,10 @@
               Равным образом постоянный количественный рост и сфера нашей
               активности требуют от нас анализа модели развития.
             </div>
-            <button class="diagonal-info__cooperation-button">
+            <button
+              class="diagonal-info__cooperation-button"
+              (click)="openForm()"
+            >
               <span class="diagonal-info__span">Обсудить сотрудничество</span>
               <div class="diagonal-info__icon">
                 <img src="./assets/icons/rightArrow.svg" alt="right-arrow" />

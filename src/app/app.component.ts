@@ -61,7 +61,7 @@ export class AppComponent implements AfterViewInit, OnInit {
         console.log(this.selectedElement);
         this.selectedElement.scrollIntoView({
           behavior: 'smooth',
-          block: 'nearest',
+          block: 'start',
         });
       }
     });

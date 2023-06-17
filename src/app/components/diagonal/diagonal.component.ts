@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OpenCloseFormService } from 'src/app/services/open-close-form.service';
 
 type Slider = {
   value: number;
@@ -11,6 +12,8 @@ type Slider = {
   styleUrls: ['./diagonal.component.scss'],
 })
 export class DiagonalComponent implements OnInit {
+  constructor(private formService: OpenCloseFormService) {}
+
   ngOnInit(): void {
     setInterval(() => {
       this.slide();
@@ -42,5 +45,9 @@ export class DiagonalComponent implements OnInit {
     if (this.slideNumber === 3) this.slideNumber = 0;
     this.slideNumber++;
     this.background = `"../../../assets/diagonal-backgrounds/${this.slideNumber}.jpg"`;
+  }
+
+  openForm() {
+    this.formService.isFormOpen.next(true);
   }
 }

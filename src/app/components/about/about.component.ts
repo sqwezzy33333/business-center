@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { takeWhile } from 'rxjs';
 import { ScrollService } from 'src/app/services/scroll.service';
+import { OpenCloseFormService } from 'src/app/services/open-close-form.service';
 
 interface Statistics {
   value: number;
@@ -16,7 +16,10 @@ interface Statistics {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  constructor(private scrollService: ScrollService) {}
+  constructor(
+    private scrollService: ScrollService,
+    private formService: OpenCloseFormService
+  ) {}
 
   ngOnInit(): void {
     this.scrollService.isAboutBlockInView
@@ -31,7 +34,6 @@ export class AboutComponent implements OnInit {
   }
 
   canIncreaseFunc!: boolean;
-  isFormOpen: boolean = false;
   emptyNum!: number;
   time: number = 2000;
 
@@ -61,34 +63,6 @@ export class AboutComponent implements OnInit {
       valueLenght: 2,
     },
   ];
-
-  form = new FormGroup({
-    name: new FormControl<string>('', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    phone: new FormControl<string>('+375', [
-      Validators.required,
-      Validators.minLength(12),
-      Validators.pattern(/^-?(0|[1-9,+]\d*)?$/),
-    ]),
-    email: new FormControl<string>('', [Validators.required, Validators.email]),
-  });
-
-  openForm(): void {
-    this.isFormOpen = true;
-  }
-
-  closeForm(): void {
-    this.isFormOpen = false;
-  }
-
-  submitForm() {
-    if (this.form.valid) {
-      console.log(this.form.value);
-      this.isFormOpen = false;
-    }
-  }
 
   outNum(el: Statistics) {
     let endOfCount: number = el.value;
@@ -135,5 +109,9 @@ export class AboutComponent implements OnInit {
     if (lenghtOfValue === 4) step = 0.0001;
 
     return step;
+  }
+
+  openForm() {
+    this.formService.isFormOpen.next(true);
   }
 }
