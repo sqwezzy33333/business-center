@@ -6,6 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ScrollService } from './services/scroll.service';
+import { ThankComponentService } from './services/thank-component.service';
 
 interface ComponentNameElement {
   name: string;
@@ -24,6 +25,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   componentsNameElement!: ComponentNameElement[];
   selectedComponentName!: string;
   selectedElement!: HTMLElement;
+  isThankCompOpen!: boolean;
 
   get diagonalComponentParams() {
     return this.componentsNameElement[0].element.getBoundingClientRect();
@@ -33,7 +35,10 @@ export class AppComponent implements AfterViewInit, OnInit {
     return this.componentsNameElement[0].element.getBoundingClientRect();
   }
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(
+    private scrollService: ScrollService,
+    private thankCompService: ThankComponentService
+  ) {}
 
   ngOnInit(): void {
     window.addEventListener('scroll', () => {
@@ -42,6 +47,11 @@ export class AppComponent implements AfterViewInit, OnInit {
         this.aboutComponentParams.y * -1 > 650
       );
     });
+
+    this.thankCompService.isThankCompOpen.subscribe(
+      (el) => (this.isThankCompOpen = el)
+      
+    );
   }
 
   ngAfterViewInit(): void {

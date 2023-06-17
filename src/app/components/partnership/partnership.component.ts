@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { ThankComponentService } from 'src/app/services/thank-component.service';
 
 @Component({
   selector: 'lending-partnership',
   templateUrl: './partnership.component.html',
   styleUrls: ['./partnership.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class PartnershipComponent {
   form = new FormGroup({
@@ -22,12 +22,15 @@ export class PartnershipComponent {
     email: new FormControl<string>('', [Validators.required, Validators.email]),
   });
 
+  constructor(private thankCCompService: ThankComponentService) {}
+
   submitForm() {
-
-    console.log('sdsd')
-
     if (this.form.valid) {
       console.log(this.form.value);
+      setTimeout(() => {
+
+      this.thankCCompService.isThankCompOpen.next(true);
+      }, 1000);
     }
   }
 }
