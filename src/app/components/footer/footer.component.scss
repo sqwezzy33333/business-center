@@ -76,12 +76,16 @@
 }
 
 @media (max-width: 1037px) {
-  .footer__ul {
-    margin-bottom: 258px;
-  }
+ .footer__links{
+  margin-bottom: 306px;
+ }
+
+ .footer__ul{
+  margin-bottom: 0;
+ }
 
   .footer {
-    background-position: 100% 80%;
+    background-position: 100% 75%;
   }
 }
 

@@ -68,7 +68,6 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.scrollService.selectedComponentName.subscribe((el) => {
       if (el) {
         this.selectedElement = this.getSelectedElement(el);
-        console.log(this.selectedElement);
         this.selectedElement.scrollIntoView({
           behavior: 'smooth',
           block: 'start',

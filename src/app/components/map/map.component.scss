@@ -162,3 +162,21 @@
     padding: 80px 0px;
   }
 }
+
+@media (max-width: 973px) {
+  .map {
+    &__yandex-map {
+      padding-bottom: 60%;
+    }
+
+    &__padding {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 946px) {
+  #map-list{
+    display: none;
+  }
+}

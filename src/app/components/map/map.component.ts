@@ -14,21 +14,68 @@ export class MapComponent implements OnInit {
       isChecked: true,
       spanText: 'расположение',
       iconSrc: './assets/icons/place.svg',
+      iconHoverSrc: './assets/icons/place.svg',
     },
     {
       placeType: 'infrastructure',
       isChecked: false,
       spanText: 'инфраструктура',
       iconSrc: './assets/icons/infrastructure.svg',
+      iconHoverSrc: './assets/icons/infrastructure-hover.svg',
     },
   ];
 
   arrayOfMapObjects = [
-    [[52.09882, 23.76674], 'Администрация'],
-    [[52.097606, 23.766278], 'Корона'],
-    [[52.099779, 23.7727], 'Парк'],
-    [[52.096791, 23.763471], 'Status'],
+    {
+      coordinates: [52.09882, 23.76674],
+      namePlace: 'адрес/название места длинное в две строки ',
+      time: '10 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.097606, 23.766278],
+      namePlace: 'Корона',
+      time: '15 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.099779, 23.7727],
+      namePlace: 'Парк',
+      time: '20 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.096791, 23.763471],
+      namePlace: 'Status',
+      time: '5 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.09882, 23.76674],
+      namePlace: 'адрес/название места длинное в две строки ',
+      time: '10 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.097606, 23.766278],
+      namePlace: 'Корона',
+      time: '15 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.099779, 23.7727],
+      namePlace: 'Парк',
+      time: '20 минут',
+      address: '',
+    },
+    {
+      coordinates: [52.096791, 23.763471],
+      namePlace: 'Status',
+      time: '5 минут',
+      address: '',
+    },
   ];
+
   map: any;
 
   ngOnInit(): void {
@@ -67,17 +114,15 @@ export class MapComponent implements OnInit {
 
   getPlacesFromArray() {
     return this.arrayOfMapObjects.map((el) => {
-      return new ymaps.GeoObject(
-        {
-          geometry: {
-            type: 'Point',
-            coordinates: el[0],
-          },
-          properties: {
-            iconCaption: el[1],
-          },
-        }
-      );
+      return new ymaps.GeoObject({
+        geometry: {
+          type: 'Point',
+          coordinates: el.coordinates,
+        },
+        properties: {
+          iconCaption: el.namePlace,
+        },
+      });
     });
   }
 

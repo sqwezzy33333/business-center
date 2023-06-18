@@ -77,6 +77,12 @@
   }
 }
 
+@media (max-width: 973px) {
+  .advantages{
+    padding-top: 80px;
+  }
+}
+
 @media (max-width: 772px) {
   .advantages__wrapper {
     flex-direction: column;
@@ -98,8 +104,6 @@
   }
 
   .advantages__item {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
     border-bottom: 1px solid $orangeColor;
 
     &:last-child {

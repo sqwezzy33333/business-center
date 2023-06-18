@@ -31,7 +31,8 @@
               (click)="checkType(item.whatImage)"
             >
               <div class="slider-image__radio-icon">
-                <img [src]="item.iconSrc" alt="" />
+                <img *ngIf="!item.isChecked" [src]="item.iconSrc" alt="icon" />
+                <img *ngIf="item.isChecked"  [src]="item.iconHoverSrc" alt="icon">
               </div>
               <span class="slider-image__radio-span">{{ item.spanText }}</span>
             </div>

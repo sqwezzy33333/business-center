@@ -95,14 +95,7 @@
   &__wrapper {
     position: relative;
     overflow: hidden;
-    clip-path: polygon(
-      5.46% 0%,
-      100% 0%,
-      100% 89.56%,
-      93.84% 100%,
-      0% 100%,
-      0% 9.44%
-    );
+    clip-path: polygon(0 0, 94% 0, 100% 9%, 100% 100%, 11% 100%, 0 85%);
   }
 
   &__items {
@@ -216,13 +209,22 @@
     left: 0;
     transform: rotate(0deg);
   }
+
+  .slider__wrapper{
+    clip-path: none;
+  }
 }
 
-@media (max-width: 453px) {
+@media (max-width: 456px) {
   .slider-image__title {
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
+  }
+
+  .slider-image__radio-buttons{
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

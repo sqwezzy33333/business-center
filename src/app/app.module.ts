@@ -18,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormWindowComponent } from './components/form-window/form-window.component';
 import { ThankYouAttentionComponent } from './components/thank-you-attention/thank-you-attention.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MapListComponent } from './components/map/map-list/map-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FooterComponent,
     FormWindowComponent,
     ThankYouAttentionComponent,
+    MapListComponent,
   ],
   imports: [
     BrowserModule,

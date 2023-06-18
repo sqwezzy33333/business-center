@@ -26,18 +26,22 @@ export class SliderImageComponent implements OnInit, AfterViewInit {
       isChecked: true,
       spanText: 'фасад',
       iconSrc: './assets/icons/infrastructure.svg',
+      iconHoverSrc: './assets/icons/infrastructure-hover.svg',
     },
     {
       whatImage: 'inter',
       isChecked: false,
       spanText: 'Интерьер общих зон',
       iconSrc: './assets/icons/place.svg',
+      iconHoverSrc: './assets/icons/place.svg',
     },
     {
       whatImage: 'parking',
       isChecked: false,
       spanText: 'паркинг',
       iconSrc: './assets/icons/infrastructure.svg',
+
+      iconHoverSrc: './assets/icons/infrastructure-hover.svg',
     },
   ];
 

@@ -35,7 +35,16 @@
               (click)="checkType(item.placeType)"
             >
               <div class="map__radio-icon">
-                <img [src]="item.iconSrc" alt="" />
+                <img
+                  [src]="item.iconSrc"
+                  alt="icon"
+                  *ngIf="item.isChecked === false"
+                />
+                <img
+                  [src]="item.iconHoverSrc"
+                  alt="icon"
+                  *ngIf="item.isChecked === true"
+                />
               </div>
               <span class="map__radio-span">{{ item.spanText }}</span>
             </div>
@@ -43,6 +52,11 @@
         </div>
 
         <div class="map__yandex-map">
+          <map-list
+            [items]="arrayOfMapObjects"
+            *ngIf="rangeFields[1].isChecked"
+            id="map-list"
+          ></map-list>
           <div id="map"></div>
         </div>
       </div>
