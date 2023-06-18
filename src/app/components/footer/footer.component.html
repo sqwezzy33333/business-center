@@ -3,7 +3,7 @@
     <div class="footer__wrapper">
       <div class="footer__content">
         <h2 class="footer__h2">
-          <span class="orange">Пишите, звоните</span> или <br>
+          <span class="orange">Пишите, звоните</span> или <br />
           <span class="orange">приезжайте</span> к нам в офис
         </h2>
         <div class="footer__links">
@@ -13,7 +13,20 @@
           <ul class="footer__ul">
             <li class="footer__li">г. Брест, ул. Московская, 275А</li>
             <li class="footer__li">pochta@gmail.com</li>
-            <li class="footer__li">+375 (29) 000 00 00</li>
+            <li class="footer__li footer__number" (click)="showAttentionAboutCopy()">
+              <div
+                class="header-phone__number desktop-number footer__li"
+                (click)="copyNumber()"
+              >
+                +375 (29) 000 00 00
+              </div>
+              <a class="phone-number" href="tel:+375292992929">
+                <div class="footer__li">+375 (29) 000 00 00</div></a
+              >
+              <div *ngIf="isCopy" class="copy-attention">
+                Телефон скопирован
+              </div>
+            </li>
             <button class="footer__cooperation-button" (click)="openForm()">
               <span class="footer__span">Обсудить сотрудничество</span>
               <div class="footer__icon">

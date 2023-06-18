@@ -54,6 +54,7 @@
   border-radius: 40px;
   border: 1px solid white;
   background: rgba(255, 255, 255, 0.12);
+  position: relative;
 
   &:hover {
     background: rgba(92, 87, 87, 0.52);
@@ -78,17 +79,34 @@
     color: black !important;
   }
 
-  .header-phone{
+  .header-phone {
     background-color: white;
 
-    &:hover{
+    &:hover {
       border: 1px solid black;
     }
   }
 
-  .header__menu-item::after{
+  .header__menu-item::after {
     background: rgb(0, 0, 0);
   }
+}
+
+.phone-number {
+  display: none;
+}
+
+.copy-attention {
+  position: absolute;
+  font-size: 12px;
+  width: 100%;
+  padding: 8px 0px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+  top: 50px;
+  left: 0;
 }
 
 .whiteBg {
@@ -104,6 +122,14 @@
 
 @media (max-width: 896px) {
   .header__menu-item {
+    display: none;
+  }
+
+  .phone-number {
+    display: block;
+  }
+
+  .desktop-number {
     display: none;
   }
 

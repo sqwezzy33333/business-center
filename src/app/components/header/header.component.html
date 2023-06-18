@@ -41,7 +41,14 @@
               {{ item.text }}
             </li>
             <li>
-              <button class="header-phone">
+              <button
+                #tooltip="matTooltip"
+                class="header-phone"
+                [matTooltip]="underPhoneText"
+                matTooltipClass="example-tooltip-uppercase"
+                aria-label="Button that shows a red tooltip"
+                (click)="showAttentionAboutCopy()"
+              >
                 <div class="header-phone__icon">
                   <img
                     *ngIf="!isHeaderWhite"
@@ -54,8 +61,16 @@
                     alt="phone"
                   />
                 </div>
-
-                <div class="header-phone__number">+375 (29) 000 00 00</div>
+                <div
+                  class="header-phone__number desktop-number"
+                  (click)="copyNumber()"
+                >
+                  +375 (29) 000 00 00
+                </div>
+                <a class="phone-number" href="tel:+375292992929">
+                  <div class="header-phone__number">+375 (29) 000 00 00</div></a
+                >
+                <div *ngIf="isCopy" class="copy-attention">Телефон скопирован</div>
               </button>
             </li>
           </ul>

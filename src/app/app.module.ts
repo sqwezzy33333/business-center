@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { DiagonalComponent } from './components/diagonal/diagonal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AboutComponent } from './components/about/about.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MaxValueLengthPipe } from './pipes/max-value-length.pipe';
+
+import { MapListComponent } from './components/map/map-list/map-list.component';
 import { VideoComponent } from './components/video/video.component';
 import { MapComponent } from './components/map/map.component';
 import { AdvantagesComponent } from './components/advantages/advantages.component';
@@ -17,8 +18,10 @@ import { SliderImageComponent } from './components/slider-image/slider-image.com
 import { FooterComponent } from './components/footer/footer.component';
 import { FormWindowComponent } from './components/form-window/form-window.component';
 import { ThankYouAttentionComponent } from './components/thank-you-attention/thank-you-attention.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MapListComponent } from './components/map/map-list/map-list.component';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DiagonalComponent } from './components/diagonal/diagonal.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { MapListComponent } from './components/map/map-list/map-list.component';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
