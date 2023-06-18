@@ -17,6 +17,7 @@ import { SliderImageComponent } from './components/slider-image/slider-image.com
 import { FooterComponent } from './components/footer/footer.component';
 import { FormWindowComponent } from './components/form-window/form-window.component';
 import { ThankYouAttentionComponent } from './components/thank-you-attention/thank-you-attention.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ThankYouAttentionComponent } from './components/thank-you-attention/tha
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

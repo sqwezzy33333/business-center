@@ -1,7 +1,7 @@
 <div class="map">
   <div class="container">
     <div class="map__padding">
-      <div class="map__text-wrapper" style="margin-bottom: 40px;">
+      <div class="map__text-wrapper" style="margin-bottom: 40px">
         <div class="map__content">
           <h1 class="map__title">
             Удобные транспортные <span class="orange">развязки</span>, самая
@@ -29,35 +29,21 @@
       <div class="map__wrapper">
         <div class="map__radio-buttons">
           <div class="map__range-field" *ngFor="let item of rangeFields">
-            <input
-              class="map__radio-input"
-              type="radio"
-              [id]="item.placeType"
-              name="map"
-              [value]="item.placeType"
-            />
-            <label
+            <div
               [ngClass]="{ activeRadioBtn: item.isChecked }"
               class="map__radio-label"
-              [for]="item.placeType"
               (click)="checkType(item.placeType)"
             >
               <div class="map__radio-icon">
                 <img [src]="item.iconSrc" alt="" />
               </div>
               <span class="map__radio-span">{{ item.spanText }}</span>
-            </label>
+            </div>
           </div>
         </div>
 
         <div class="map__yandex-map">
-          <iframe
-            class="map__iframe"
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Aac8c639c65b28683ae5ed9f08d7029f79d56828a2aeaa75f3eea4b983a830db9&amp;source=constructor"
-            width="100%"
-            height="100%"
-            frameborder="0"
-          ></iframe>
+          <div id="map"></div>
         </div>
       </div>
     </div>

@@ -9,7 +9,9 @@ export class ScrollService {
 
   isDiagonalCompInView = new BehaviorSubject<boolean>(true);
 
-  isAboutBlockInView = new BehaviorSubject<boolean>(false)
+  isAboutBlockInView = new BehaviorSubject<boolean>(false);
+
+  wtf = new BehaviorSubject<any>('');
 
   constructor() {}
 }

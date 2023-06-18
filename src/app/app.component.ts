@@ -4,6 +4,7 @@ import {
   ElementRef,
   AfterViewInit,
   OnInit,
+  Input,
 } from '@angular/core';
 import { ScrollService } from './services/scroll.service';
 import { ThankComponentService } from './services/thank-component.service';
@@ -50,7 +51,6 @@ export class AppComponent implements AfterViewInit, OnInit {
 
     this.thankCompService.isThankCompOpen.subscribe(
       (el) => (this.isThankCompOpen = el)
-      
     );
   }
 

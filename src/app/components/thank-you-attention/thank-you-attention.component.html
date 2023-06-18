@@ -1,11 +1,18 @@
 <div class="thank-you">
   <div class="thank-you__wrapper">
     <div class="thank-you__block">
-      <h2 class="thank-you__h2">Спасибо! Данные<br>успешно отправлены</h2>
+      <h2 class="thank-you__h2">Спасибо! Данные<br />успешно отправлены</h2>
       <span class="thank-you__manager"
         >Наш менеджер свяжется с вами в ближайшее время</span
       >
       <div (click)="closeComp()" class="thank-you__btn">Все понятно</div>
+      <mat-spinner
+        diameter="30"
+        class="thank-you__progress"
+        color="primare"
+        [value]="value"
+        [mode]="mode"
+      ></mat-spinner>
     </div>
   </div>
 </div>
