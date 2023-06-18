@@ -31,6 +31,7 @@
     font-weight: 500;
     line-height: 16px;
     text-transform: uppercase;
+    color: #b6b3b0;
   }
 
   &__content {
@@ -78,7 +79,7 @@
 }
 
 @media (max-width: 973px) {
-  .advantages{
+  .advantages {
     padding-top: 80px;
   }
 }
@@ -112,5 +113,4 @@
       padding: 0;
     }
   }
-
 }

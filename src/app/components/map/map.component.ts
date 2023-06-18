@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 declare const ymaps: any;
 
+interface MapObject {
+  coordinates: number[];
+  namePlace: string;
+  time: string;
+  address: string;
+}
+
 @Component({
   selector: 'lending-map',
   templateUrl: './map.component.html',
@@ -25,7 +32,7 @@ export class MapComponent implements OnInit {
     },
   ];
 
-  arrayOfMapObjects = [
+  arrayOfMapObjects: MapObject[] = [
     {
       coordinates: [52.09882, 23.76674],
       namePlace: 'адрес/название места длинное в две строки ',
@@ -112,7 +119,7 @@ export class MapComponent implements OnInit {
     console.log(type);
   }
 
-  getPlacesFromArray() {
+  getPlacesFromArray(): MapObject[] {
     return this.arrayOfMapObjects.map((el) => {
       return new ymaps.GeoObject({
         geometry: {
@@ -126,7 +133,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  showInfrastucture() {
+  showInfrastucture(): void {
     this.map.geoObjects.removeAll();
 
     this.addDiagonalCenterToMap('infrastructure');
@@ -136,13 +143,13 @@ export class MapComponent implements OnInit {
     });
   }
 
-  showLocation() {
+  showLocation(): void {
     this.map.geoObjects.removeAll();
 
     this.addDiagonalCenterToMap('location');
   }
 
-  addDiagonalCenterToMap(type: string) {
+  addDiagonalCenterToMap(type: string): void {
     let title: string;
     let color: string;
 
