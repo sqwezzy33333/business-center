@@ -109,10 +109,10 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
   }
 
   getArrayOfImages(): Slider[] {
-    let a = this.sliderImages.filter(
+    let arrayOfImages: Slider[] = this.sliderImages.filter(
       (el: Slider) => el.whatImage === this.whatImagesIsCheked
     );
-    return a;
+    return arrayOfImages;
   }
 
   nextSlide() {
