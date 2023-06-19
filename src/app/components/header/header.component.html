@@ -65,12 +65,14 @@
                   class="header-phone__number desktop-number"
                   (click)="copyNumber()"
                 >
-                  +375 (29) 000 00 00
+                  {{ phoneNumber }}
                 </div>
                 <a class="phone-number" href="tel:+375292992929">
-                  <div class="header-phone__number">+375 (29) 000 00 00</div></a
+                  <div class="header-phone__number">{{ phoneNumber }}</div></a
                 >
-                <div *ngIf="isCopy" class="copy-attention">Телефон скопирован</div>
+                <div *ngIf="isCopy" class="copy-attention">
+                  Телефон скопирован
+                </div>
               </button>
             </li>
           </ul>

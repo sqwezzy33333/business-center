@@ -30,7 +30,7 @@ export class FormWindowComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.formService.isFormOpen.subscribe((el) => {
+    this.formService.isFormOpen.subscribe((el: boolean) => {
       this.isFormOpen = el;
     });
   }
@@ -43,12 +43,14 @@ export class FormWindowComponent implements OnInit {
     this.formService.isFormOpen.next(false);
   }
 
-  submitForm() {
+  submitForm(): void {
     if (this.form.valid) {
       console.log(this.form.value);
+
       this.isFormOpen = false;
+
       setTimeout(() => {
-        this.ThankCompService.isThankCompOpen.next(true)
+        this.ThankCompService.isThankCompOpen.next(true);
       }, 1000);
     }
   }

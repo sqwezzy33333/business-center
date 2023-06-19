@@ -34,36 +34,6 @@ export class MapComponent implements OnInit {
 
   arrayOfMapObjects: MapObject[] = [
     {
-      coordinates: [52.09882, 23.76674],
-      namePlace: 'адрес/название места длинное в две строки ',
-      time: '10 минут',
-      address: '',
-    },
-    {
-      coordinates: [52.097606, 23.766278],
-      namePlace: 'Корона',
-      time: '15 минут',
-      address: '',
-    },
-    {
-      coordinates: [52.099779, 23.7727],
-      namePlace: 'Парк',
-      time: '20 минут',
-      address: '',
-    },
-    {
-      coordinates: [52.096791, 23.763471],
-      namePlace: 'Status',
-      time: '5 минут',
-      address: '',
-    },
-    {
-      coordinates: [52.09882, 23.76674],
-      namePlace: 'адрес/название места длинное в две строки ',
-      time: '10 минут',
-      address: '',
-    },
-    {
       coordinates: [52.097606, 23.766278],
       namePlace: 'Корона',
       time: '15 минут',
@@ -116,7 +86,6 @@ export class MapComponent implements OnInit {
 
     if (type === 'infrastructure') this.showInfrastucture();
     if (type === 'location') this.showLocation();
-    console.log(type);
   }
 
   getPlacesFromArray(): MapObject[] {
@@ -137,7 +106,7 @@ export class MapComponent implements OnInit {
     this.map.geoObjects.removeAll();
 
     this.addDiagonalCenterToMap('infrastructure');
-    console.group(this.getPlacesFromArray());
+  
     this.getPlacesFromArray().forEach((el) => {
       this.map.geoObjects.add(el);
     });

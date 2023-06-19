@@ -81,7 +81,6 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
   whatImagesIsCheked: string = this.rangeFields[0].whatImage;
   containerWidth!: number;
   indexOfSlider: number = 1;
-  positionNextSlides!: number;
 
   @ViewChild('container', { read: ElementRef })
   container!: ElementRef;
@@ -118,7 +117,6 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
 
   nextSlide() {
     if (this.indexOfSlider === 5) return;
-    console.log(this.item);
     this.item.nativeElement.style.left = `-${
       this.containerWidth * this.indexOfSlider
     }px`;

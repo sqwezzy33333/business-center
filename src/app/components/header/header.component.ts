@@ -6,7 +6,6 @@ import { ScrollService } from 'src/app/services/scroll.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isCopy = false;
   menuItems = [
     {
       text: 'О проекте',
@@ -28,7 +27,11 @@ export class HeaderComponent implements OnInit {
 
   underPhoneText: string = 'Копировать телефон';
 
+  phoneNumber: string = '+375 (29) 000 00 00';
+
   isHeaderWhite = false;
+
+  isCopy = false;
 
   constructor(private scrollService: ScrollService) {}
 
@@ -43,7 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   copyNumber() {
-    let phone = '+375292992929';
+    let phone = '+375 (29) 000 00 00';
     navigator.clipboard.writeText(phone);
   }
 

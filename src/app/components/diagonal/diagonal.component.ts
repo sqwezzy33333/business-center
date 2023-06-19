@@ -24,21 +24,6 @@ export class DiagonalComponent implements OnInit {
 
   background: string = `"../../../assets/diagonal-backgrounds/${this.slideNumber}.jpg"`;
 
-  slides = [
-    {
-      src: '',
-      id: 1,
-    },
-    {
-      src: '',
-      id: 2,
-    },
-    {
-      src: '',
-      id: 3,
-    },
-  ];
-
   slideLinesArray: number[] = [1, 2, 3];
 
   slide() {
