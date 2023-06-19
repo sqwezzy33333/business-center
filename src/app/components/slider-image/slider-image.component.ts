@@ -4,7 +4,7 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  AfterViewInit,
+  AfterViewChecked,
 } from '@angular/core';
 
 interface Slider {
@@ -19,7 +19,7 @@ interface Slider {
 
   encapsulation: ViewEncapsulation.None,
 })
-export class SliderImageComponent implements OnInit, AfterViewInit {
+export class SliderImageComponent implements OnInit, AfterViewChecked {
   rangeFields = [
     {
       whatImage: 'facade',
@@ -89,7 +89,7 @@ export class SliderImageComponent implements OnInit, AfterViewInit {
   @ViewChild('item', { read: ElementRef })
   item!: ElementRef;
 
-  ngAfterViewInit(): void {
+  ngAfterViewChecked(): void {
     this.containerWidth = this.container.nativeElement.offsetWidth - 20;
   }
 
@@ -118,6 +118,7 @@ export class SliderImageComponent implements OnInit, AfterViewInit {
 
   nextSlide() {
     if (this.indexOfSlider === 5) return;
+    console.log(this.item);
     this.item.nativeElement.style.left = `-${
       this.containerWidth * this.indexOfSlider
     }px`;
