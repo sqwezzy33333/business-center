@@ -21,8 +21,12 @@ interface Slider {
   encapsulation: ViewEncapsulation.None,
 })
 export class SliderImageComponent implements OnInit, AfterViewChecked {
-  constructor(private scrollService: ScrollService) {}
+  @ViewChild('container', { read: ElementRef })
+  container!: ElementRef;
 
+  @ViewChild('item', { read: ElementRef })
+  item!: ElementRef;
+  @ViewChild('slider', { read: ElementRef }) sliderElement!: HTMLElement;
   rangeFields = [
     {
       whatImage: 'facade',
@@ -80,23 +84,20 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
       ],
     },
   ];
+
   currentSliders!: Slider;
   whatImagesIsCheked: string = this.rangeFields[0].whatImage;
   containerWidth!: number;
   indexOfSlider: number = 1;
 
-  @ViewChild('container', { read: ElementRef })
-  container!: ElementRef;
-
-  @ViewChild('item', { read: ElementRef })
-  item!: ElementRef;
-
-  ngAfterViewChecked(): void {
-    this.containerWidth = this.container.nativeElement.offsetWidth - 20;
-  }
+  constructor(private scrollService: ScrollService) {}
 
   ngOnInit(): void {
     this.getArrayOfImages();
+  }
+
+  ngAfterViewChecked(): void {
+    this.containerWidth = this.container.nativeElement.offsetWidth - 20;
   }
 
   checkType(type: string) {
@@ -134,7 +135,11 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
     this.indexOfSlider--;
   }
 
-  goUp(){
-    this.scrollService.selectedComponentName.next('diagonal')
+  goUp() {
+    this.scrollService.selectedComponentName.next('diagonal');
+  }
+
+  logg() {
+    console.log('sdasd');
   }
 }

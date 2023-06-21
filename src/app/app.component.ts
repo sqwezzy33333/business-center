@@ -74,8 +74,6 @@ export class AppComponent implements AfterViewInit, OnInit {
         });
       }
     });
-
-    console.log(this.componentsNameElement)
   }
 
   getSelectedElement(name: string) {

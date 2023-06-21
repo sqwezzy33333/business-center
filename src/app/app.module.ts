@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Injectable, NgModule } from '@angular/core';
+import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -22,6 +22,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DiagonalComponent } from './components/diagonal/diagonal.component';
 import { AboutComponent } from './components/about/about.component';
+import { HammerModule } from '@angular/platform-browser';
+import * as Hammer from 'hammerjs';
+
+@Injectable()
+export class MyHammerConfig extends HammerGestureConfig {
+  override overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 @NgModule({
   declarations: [
@@ -49,8 +58,12 @@ import { AboutComponent } from './components/about/about.component';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    HammerModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig,
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
