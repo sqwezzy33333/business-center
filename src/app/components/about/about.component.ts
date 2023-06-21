@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { takeWhile } from 'rxjs';
 import { ScrollService } from 'src/app/services/scroll.service';
 
@@ -15,6 +15,11 @@ interface Statistics {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
+  @ViewChild('popupBlock', { read: ElementRef })
+  popupBlock!: ElementRef;
+  @ViewChild('popup', { read: ElementRef })
+  popup!: ElementRef;
+
   constructor(private scrollService: ScrollService) {}
 
   ngOnInit(): void {
@@ -115,5 +120,27 @@ export class AboutComponent implements OnInit {
   closePopup(e: Event) {
     let clickedElement = e.target as HTMLElement;
     if (clickedElement.className === 'popup__close') this.isPopupOpen = false;
+  }
+
+  swipeup(e: any) {
+    if (
+      this.popupBlock.nativeElement.offsetHeight >
+      this.popup.nativeElement.offsetHeight
+    ) {
+      console.log(e.deltaY);
+      this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
+    }
+  }
+
+  swipedown(e: any) {
+    if (
+      this.popupBlock.nativeElement.offsetHeight >
+      this.popup.nativeElement.offsetHeight
+    ) {
+      console.log(e.deltaY);
+      this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
+    }
+    let positionTop = parseInt(this.popupBlock.nativeElement.style.top);
+    if (positionTop) this.popupBlock.nativeElement.style.top = '0';
   }
 }

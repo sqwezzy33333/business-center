@@ -55,10 +55,44 @@
   </div>
 </div>
 
-<div class="popup" *ngIf="isPopupOpen" >
+<div class="popup" *ngIf="isPopupOpen" #popup>
   <div class="popup__close" (click)="closePopup($event)">
     <div class="popup__wrapper">
-      <div class="popup__block">text</div>
+      <div class="popup__block" #popupBlock (swipeup)="swipeup($event)" (swipedown)="swipedown($event)">
+        <div class="popup__title">
+          <span class="popup__title1">Title 1</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+        <div class="popup__title">
+          <span class="popup__title2">Title 2</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+        <div class="popup__title">
+          <span class="popup__title3">Title</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+      </div>
+      <div class="popup__close-btn" (click)="isPopupOpen = false">
+        <img src="./assets/icons/close.svg" alt="" />
+      </div>
     </div>
   </div>
 </div>

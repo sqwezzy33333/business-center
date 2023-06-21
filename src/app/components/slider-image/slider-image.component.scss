@@ -106,7 +106,7 @@
     position: relative;
     top: 0;
     left: 0;
-    transition: 0.8s ease-in-out all;
+    transition: 0.5s ease-in-out all;
   }
 
   &__item {
@@ -251,8 +251,13 @@
   }
 
   .slider-image__radio-buttons {
-    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: visible;
     justify-content: center;
+    transition: all ease-in-out 0.3s;
   }
 }
 

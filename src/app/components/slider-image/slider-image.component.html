@@ -20,9 +20,10 @@
         </div>
       </div>
       <div class="slider-image__wrapper">
-        <div class="slider-image__radio-buttons">
+        <div class="slider-image__radio-buttons" (swipeleft)="leftSwipeRangeBtns($event)" (swiperight)="rightSwipeRangeBtns($event)" #radio_btns>
           <div
             class="slider-image__range-field"
+            style="flex: 0 0 auto"
             *ngFor="let item of rangeFields"
           >
             <div
@@ -49,7 +50,7 @@
           <div class="slider__items" #item>
             <div
               class="slider__item"
-              *ngFor="let imageSrc of getArrayOfImages()[0].src"
+              *ngFor="let imageSrc of currentSliders.src"
               (swipeleft)="nextSlide()"
               (swiperight)="prevSlide()"
             >

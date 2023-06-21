@@ -23,10 +23,11 @@ interface Slider {
 export class SliderImageComponent implements OnInit, AfterViewChecked {
   @ViewChild('container', { read: ElementRef })
   container!: ElementRef;
-
+  @ViewChild('radio_btns', { read: ElementRef }) radioBtns!: ElementRef;
   @ViewChild('item', { read: ElementRef })
   item!: ElementRef;
   @ViewChild('slider', { read: ElementRef }) sliderElement!: HTMLElement;
+
   rangeFields = [
     {
       whatImage: 'facade',
@@ -109,14 +110,15 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
         this.indexOfSlider = 1;
         this.item.nativeElement.style.left = '0';
       }
+      this.getArrayOfImages();
     });
   }
 
-  getArrayOfImages(): Slider[] {
+  getArrayOfImages() {
     let arrayOfImages: Slider[] = this.sliderImages.filter(
       (el: Slider) => el.whatImage === this.whatImagesIsCheked
     );
-    return arrayOfImages;
+    this.currentSliders = arrayOfImages[0];
   }
 
   nextSlide() {
@@ -139,7 +141,22 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
     this.scrollService.selectedComponentName.next('diagonal');
   }
 
-  logg() {
-    console.log('sdasd');
+  leftSwipeRangeBtns(e: any) {
+    if (this.containerWidth < 456) {
+      this.radioBtns.nativeElement.style.left = `${e.deltaX}px`;
+    }
+  }
+
+  rightSwipeRangeBtns(e: any) {
+    if (this.containerWidth < 456) {
+      if (!this.radioBtns.nativeElement.style.left) return;
+
+      let leftPx = e.deltaX / 1.5;
+      if (leftPx > 0) {
+        this.radioBtns.nativeElement.style.left = `${0}px`;
+        return;
+      }
+      this.radioBtns.nativeElement.style.left = `${e.deltaX}px`;
+    }
   }
 }
