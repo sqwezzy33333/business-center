@@ -127,8 +127,14 @@ export class AboutComponent implements OnInit {
       this.popupBlock.nativeElement.offsetHeight >
       this.popup.nativeElement.offsetHeight
     ) {
-      console.log(e.deltaY);
       this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
+    }
+
+    let positionTop = parseInt(this.popupBlock.nativeElement.style.top);
+    if (positionTop * -1 > this.popupBlock.nativeElement.offsetHeight / 2) {
+      this.popupBlock.nativeElement.style.top = `-${
+        this.popupBlock.nativeElement.offsetHeight / 3
+      }px`;
     }
   }
 
@@ -137,10 +143,9 @@ export class AboutComponent implements OnInit {
       this.popupBlock.nativeElement.offsetHeight >
       this.popup.nativeElement.offsetHeight
     ) {
-      console.log(e.deltaY);
       this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
     }
     let positionTop = parseInt(this.popupBlock.nativeElement.style.top);
-    if (positionTop) this.popupBlock.nativeElement.style.top = '0';
+    if (positionTop > 0) this.popupBlock.nativeElement.style.top = '0';
   }
 }
