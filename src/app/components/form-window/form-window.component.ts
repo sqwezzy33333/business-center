@@ -43,6 +43,12 @@ export class FormWindowComponent implements OnInit {
     this.formService.isFormOpen.next(false);
   }
 
+  closeFormFromOutside(e: Event) {
+    let clickedElement = e.target as HTMLElement;
+    if (clickedElement.className === 'form-window__close')
+      this.isFormOpen = false;
+  }
+
   submitForm(): void {
     if (this.form.valid) {
       console.log(this.form.value);

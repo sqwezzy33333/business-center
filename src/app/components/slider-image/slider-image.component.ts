@@ -6,6 +6,7 @@ import {
   ElementRef,
   AfterViewChecked,
 } from '@angular/core';
+import { ScrollService } from 'src/app/services/scroll.service';
 
 interface Slider {
   whatImage: string;
@@ -20,6 +21,8 @@ interface Slider {
   encapsulation: ViewEncapsulation.None,
 })
 export class SliderImageComponent implements OnInit, AfterViewChecked {
+  constructor(private scrollService: ScrollService) {}
+
   rangeFields = [
     {
       whatImage: 'facade',
@@ -129,5 +132,9 @@ export class SliderImageComponent implements OnInit, AfterViewChecked {
       this.containerWidth * this.indexOfSlider - this.containerWidth * 2
     }px`;
     this.indexOfSlider--;
+  }
+
+  goUp(){
+    this.scrollService.selectedComponentName.next('diagonal')
   }
 }

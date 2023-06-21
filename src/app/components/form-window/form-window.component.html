@@ -1,95 +1,101 @@
 <div class="form-window" *ngIf="isFormOpen">
-  <div class="form-window__wrapper">
-    <h2 class="form-window__h2">Оставьте заявку</h2>
-    <div class="form-window__text">
-      Наш менеджер свяжется с вами для подробной консультации
-    </div>
-    <form
-      action="#"
-      [formGroup]="form"
-      id="form-window"
-      (submit)="submitForm()"
-      class="form-window__form"
-    >
-      <mat-form-field class="form-window__field">
-        <mat-label>Ваше имя</mat-label>
-        <input
-          type="text"
-          matInput
-          [formControl]="form.controls.name"
-          placeholder="Ваше имя"
-        />
-        <mat-error
-          *ngIf="
-            form.controls.name.hasError('minlength') &&
-            !form.controls.name.hasError('required')
-          "
-        >
-          Слишком короткое имя
-        </mat-error>
-        <mat-error *ngIf="form.controls.name.hasError('required')">
-          Заполните поле
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="form-window__field">
-        <mat-label>Номер телефона</mat-label>
-        <input
-          type="tel"
-          matInput
-          [formControl]="form.controls.phone"
-          placeholder="Номер телефона"
-          class="about-phone-field"
-        />
-        <mat-error
-          *ngIf="
-            form.controls.phone.hasError('minlength') &&
-            !form.controls.phone.hasError('required')
-          "
-        >
-          Пожалуйста введите корректный телефон
-        </mat-error>
-        <mat-error *ngIf="form.controls.phone.hasError('required')">
-          Заполните поле
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="form-window__field">
-        <mat-label>Email</mat-label>
-        <input
-          type="email"
-          matInput
-          [formControl]="form.controls.email"
-          placeholder="Ex. pat@example.com"
-        />
-        <mat-error
-          *ngIf="
-            form.controls.email.hasError('email') &&
-            !form.controls.email.hasError('required')
-          "
-        >
-          Пожалуйста введите корректный email
-        </mat-error>
-        <mat-error *ngIf="form.controls.email.hasError('required')">
-          Заполните поле
-        </mat-error>
-      </mat-form-field>
-    </form>
-
-    <button type="submit" form="form-window" class="form-window-submit__button">
-      <span class="form-window-submit__span">Отправить заявку</span>
-      <div class="form-window-submit__icon">
-        <img src="./assets/icons/rightArrow.svg" alt="right-arrow" />
+  <div class="form-window__close" (click)="closeFormFromOutside($event)">
+    <div class="form-window__wrapper">
+      <h2 class="form-window__h2">Оставьте заявку</h2>
+      <div class="form-window__text">
+        Наш менеджер свяжется с вами для подробной консультации
       </div>
-    </button>
+      <form
+        action="#"
+        [formGroup]="form"
+        id="form-window"
+        (submit)="submitForm()"
+        class="form-window__form"
+      >
+        <mat-form-field class="form-window__field">
+          <mat-label>Ваше имя</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControl]="form.controls.name"
+            placeholder="Ваше имя"
+          />
+          <mat-error
+            *ngIf="
+              form.controls.name.hasError('minlength') &&
+              !form.controls.name.hasError('required')
+            "
+          >
+            Слишком короткое имя
+          </mat-error>
+          <mat-error *ngIf="form.controls.name.hasError('required')">
+            Заполните поле
+          </mat-error>
+        </mat-form-field>
 
-    <button class="form-window__close-btn" (click)="closeForm()">
-      <img src="./assets/icons/close.svg" alt="close" />
-    </button>
+        <mat-form-field class="form-window__field">
+          <mat-label>Номер телефона</mat-label>
+          <input
+            type="tel"
+            matInput
+            [formControl]="form.controls.phone"
+            placeholder="Номер телефона"
+            class="about-phone-field"
+          />
+          <mat-error
+            *ngIf="
+              form.controls.phone.hasError('minlength') &&
+              !form.controls.phone.hasError('required')
+            "
+          >
+            Пожалуйста введите корректный телефон
+          </mat-error>
+          <mat-error *ngIf="form.controls.phone.hasError('required')">
+            Заполните поле
+          </mat-error>
+        </mat-form-field>
 
-    <span class="form-window__politics"
-      >Отправляя заявку, вы соглашаетесь с
-      <span class="underline">политикой конфиденциальности</span>
-    </span>
+        <mat-form-field class="form-window__field">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            [formControl]="form.controls.email"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error
+            *ngIf="
+              form.controls.email.hasError('email') &&
+              !form.controls.email.hasError('required')
+            "
+          >
+            Пожалуйста введите корректный email
+          </mat-error>
+          <mat-error *ngIf="form.controls.email.hasError('required')">
+            Заполните поле
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <button
+        type="submit"
+        form="form-window"
+        class="form-window-submit__button"
+      >
+        <span class="form-window-submit__span">Отправить заявку</span>
+        <div class="form-window-submit__icon">
+          <img src="./assets/icons/rightArrow.svg" alt="right-arrow" />
+        </div>
+      </button>
+
+      <button class="form-window__close-btn" (click)="closeForm()">
+        <img src="./assets/icons/close.svg" alt="close" />
+      </button>
+
+      <span class="form-window__politics"
+        >Отправляя заявку, вы соглашаетесь с
+        <span class="underline">политикой конфиденциальности</span>
+      </span>
+    </div>
   </div>
 </div>

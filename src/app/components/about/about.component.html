@@ -46,11 +46,19 @@
               </div>
             </div>
           </div>
-          <button class="about-statistics__button" (click)="openForm()">
+          <button class="about-statistics__button" (click)="openPopup()">
             <div class="about-statistics__full-information">Вся информация</div>
           </button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="isPopupOpen" >
+  <div class="popup__close" (click)="closePopup($event)">
+    <div class="popup__wrapper">
+      <div class="popup__block">text</div>
     </div>
   </div>
 </div>

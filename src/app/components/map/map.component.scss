@@ -1,6 +1,8 @@
 @import "./../../../styles/variables.scss";
 
 .map {
+  background-color: rgb(255, 249, 244);
+  
   &__text-wrapper {
     display: flex;
     align-items: flex-start;

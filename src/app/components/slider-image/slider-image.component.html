@@ -32,7 +32,11 @@
             >
               <div class="slider-image__radio-icon">
                 <img *ngIf="!item.isChecked" [src]="item.iconSrc" alt="icon" />
-                <img *ngIf="item.isChecked"  [src]="item.iconHoverSrc" alt="icon">
+                <img
+                  *ngIf="item.isChecked"
+                  [src]="item.iconHoverSrc"
+                  alt="icon"
+                />
               </div>
               <span class="slider-image__radio-span">{{ item.spanText }}</span>
             </div>
@@ -92,6 +96,10 @@
             <span class="orange">/</span>
             <span>5</span>
           </div>
+        </div>
+
+        <div class="goUp" (click)="goUp()">
+          <img src="../../../assets/icons/goUpIcon.svg" alt="" />
         </div>
       </div>
     </div>

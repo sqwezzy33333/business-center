@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { takeWhile } from 'rxjs';
 import { ScrollService } from 'src/app/services/scroll.service';
-import { OpenCloseFormService } from 'src/app/services/open-close-form.service';
 
 interface Statistics {
   value: number;
@@ -16,10 +15,7 @@ interface Statistics {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  constructor(
-    private scrollService: ScrollService,
-    private formService: OpenCloseFormService
-  ) {}
+  constructor(private scrollService: ScrollService) {}
 
   ngOnInit(): void {
     this.scrollService.isAboutBlockInView
@@ -36,6 +32,7 @@ export class AboutComponent implements OnInit {
   canIncreaseFunc!: boolean;
   emptyNum!: number;
   time: number = 2000;
+  isPopupOpen: boolean = false;
 
   statistics: Statistics[] = [
     {
@@ -111,7 +108,12 @@ export class AboutComponent implements OnInit {
     return step;
   }
 
-  openForm() {
-    this.formService.isFormOpen.next(true);
+  openPopup() {
+    this.isPopupOpen = true;
+  }
+
+  closePopup(e: Event) {
+    let clickedElement = e.target as HTMLElement;
+    if (clickedElement.className === 'popup__close') this.isPopupOpen = false;
   }
 }
