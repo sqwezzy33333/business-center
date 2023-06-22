@@ -32,6 +32,9 @@ export class FormWindowComponent implements OnInit {
   ngOnInit(): void {
     this.formService.isFormOpen.subscribe((el: boolean) => {
       this.isFormOpen = el;
+      if (el) {
+        document.body.style.overflow = 'hidden';
+      }
     });
   }
 
@@ -40,13 +43,17 @@ export class FormWindowComponent implements OnInit {
   }
 
   closeForm(): void {
+    document.body.style.overflow = 'auto';
     this.formService.isFormOpen.next(false);
   }
 
   closeFormFromOutside(e: Event) {
     let clickedElement = e.target as HTMLElement;
-    if (clickedElement.className === 'form-window__close')
+    if (clickedElement.className === 'form-window__close'){
+      document.body.style.overflow = 'auto';
+
       this.isFormOpen = false;
+    }
   }
 
   submitForm(): void {

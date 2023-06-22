@@ -115,37 +115,19 @@ export class AboutComponent implements OnInit {
 
   openPopup() {
     this.isPopupOpen = true;
+    document.body.style.overflow = 'hidden';
   }
 
   closePopup(e: Event) {
     let clickedElement = e.target as HTMLElement;
-    if (clickedElement.className === 'popup__close') this.isPopupOpen = false;
-  }
-
-  swipeup(e: any) {
-    if (
-      this.popupBlock.nativeElement.offsetHeight >
-      this.popup.nativeElement.offsetHeight
-    ) {
-      this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
-    }
-
-    let positionTop = parseInt(this.popupBlock.nativeElement.style.top);
-    if (positionTop * -1 > this.popupBlock.nativeElement.offsetHeight / 2) {
-      this.popupBlock.nativeElement.style.top = `-${
-        this.popupBlock.nativeElement.offsetHeight / 3
-      }px`;
+    if (clickedElement.className === 'popup__close') {
+      this.isPopupOpen = false;
+      document.body.style.overflow = 'auto';
     }
   }
 
-  swipedown(e: any) {
-    if (
-      this.popupBlock.nativeElement.offsetHeight >
-      this.popup.nativeElement.offsetHeight
-    ) {
-      this.popupBlock.nativeElement.style.top = `${e.deltaY}px`;
-    }
-    let positionTop = parseInt(this.popupBlock.nativeElement.style.top);
-    if (positionTop > 0) this.popupBlock.nativeElement.style.top = '0';
+  closePopupByBtn() {
+    this.isPopupOpen = false;
+    document.body.style.overflow = 'auto';
   }
 }

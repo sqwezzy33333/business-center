@@ -7,9 +7,6 @@
   height: 100%;
   background-color: rgba($color: #000000, $alpha: 0.67);
   backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &__wrapper {
     z-index: 12;
@@ -65,7 +62,7 @@
     }
   }
 
-  &__close{
+  &__close {
     position: relative;
     width: 100%;
     height: 100%;
@@ -116,19 +113,23 @@
 
 @media (max-width: 524px) {
   .form-window {
-    padding-top: 80px;
+    padding: 0px;
     align-items: flex-start;
   }
 
   .form-window__wrapper {
     max-width: 350px;
     padding: 20px;
-  }}
+    justify-content: flex-start;
+  }
+
+  .form-window__close{
+    padding-top: 30px;
+    align-items: flex-start;
+  }
+}
 
 @media (max-width: 453px) {
-  .form-window__wrapper {
-    max-width: 250px;
-  }
 
   .form-window__close-btn {
     top: 0;

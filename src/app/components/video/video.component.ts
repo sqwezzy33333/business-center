@@ -10,9 +10,11 @@ export class VideoComponent {
 
   openVideo() {
     this.isPlayerOpen = true;
+    document.body.style.overflow = 'hidden';
   }
 
   closePlayWindow() {
     this.isPlayerOpen = false;
+    document.body.style.overflow = 'auto';
   }
 }

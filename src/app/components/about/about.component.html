@@ -58,7 +58,7 @@
 <div class="popup" *ngIf="isPopupOpen" #popup>
   <div class="popup__close" (click)="closePopup($event)">
     <div class="popup__wrapper">
-      <div class="popup__block" #popupBlock (swipeup)="swipeup($event)" (swipedown)="swipedown($event)">
+      <div class="popup__block" #popupBlock >
         <div class="popup__title">
           <span class="popup__title1">Title 1</span>
           <div class="popup__text">
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="popup__close-btn" (click)="isPopupOpen = false">
+      <div class="popup__close-btn" (click)="closePopupByBtn()">
         <img src="./assets/icons/close.svg" alt="" />
       </div>
     </div>
