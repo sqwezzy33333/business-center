@@ -1,0 +1,98 @@
+<div class="about">
+  <div class="container">
+    <div class="about__wrapper">
+      <div class="about__project about-project">
+        <div class="about-project__wrapper">
+          <div class="about-project__line"></div>
+          <span>О проекте</span>
+        </div>
+      </div>
+
+      <div class="about__content about-content">
+        <h1 class="about-content__h1">
+          <span style="color: rgba(254, 67, 0, 1)">Равным образом</span>
+          постоянный количественный рост и сфера нашей активности
+        </h1>
+
+        <div class="about-content__text">
+          Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру
+          сгенерировать несколько абзацев более менее осмысленного текста рыбы
+          на русском языке, а начинающему оратору отточить навык публичных
+          выступлений в домашних условиях. При создании генератора мы
+          использовали небезизвестный универсальный код речей. Текст
+          генерируется абзацами случайным образом от двух до десяти предложений
+          в абзаце, что позволяет сделать текст более привлекательным и живым
+          для визуально-слухового восприятия.
+        </div>
+
+        <div class="about-content__statistics about-statistics">
+          <div class="about-statistics__info">
+            <div class="about-statistics__grid-container">
+              <div
+                class="about-statistics__item"
+                *ngFor="let item of statistics"
+              >
+                <div class="about-statistics__params">
+                  <span class="about-statistics__number">{{
+                    item.value | maxLength : item.valueLenght
+                  }}</span
+                  ><span class="about-statistics__measure">{{
+                    item.measure
+                  }}</span>
+                </div>
+                <div class="about-statistics__text-span">
+                  {{ item.parameter }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="about-statistics__button" (click)="openPopup()">
+            <div class="about-statistics__full-information">Вся информация</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="isPopupOpen" #popup>
+  <div class="popup__close" (click)="closePopup($event)">
+    <div class="popup__wrapper">
+      <div class="popup__block" #popupBlock >
+        <div class="popup__title">
+          <span class="popup__title1">Title 1</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+        <div class="popup__title">
+          <span class="popup__title2">Title 2</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+        <div class="popup__title">
+          <span class="popup__title3">Title</span>
+          <div class="popup__text">
+            Повседневная практика показывает, что реализация намеченных плановых
+            заданий способствует подготовки и реализации системы обучения
+            кадров, соответствует насущным потребностям. Разнообразный и богатый
+            опыт постоянный количественный рост и сфера нашей активности
+            позволяет выполнять важные задания по разработке модели развития.
+          </div>
+        </div>
+      </div>
+      <div class="popup__close-btn" (click)="closePopupByBtn()">
+        <img src="./assets/icons/close.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

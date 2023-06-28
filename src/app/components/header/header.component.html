@@ -1,0 +1,83 @@
+<header
+  class="header"
+  [ngClass]="{ whiteBg: isHeaderWhite, blackText: isHeaderWhite }"
+>
+  <div class="container header__container">
+    <div class="header__wrapper">
+      <div class="header__flex">
+        <div class="header__logo header__big-logo">
+          <img
+            *ngIf="!isHeaderWhite"
+            src="./assets/icons/logo.svg"
+            alt="logo"
+          />
+          <img
+            *ngIf="isHeaderWhite"
+            src="./assets/icons/logoBlack.svg"
+            alt="logo"
+          />
+        </div>
+
+        <div class="header__small-logo">
+          <img
+            *ngIf="isHeaderWhite"
+            src="../../../assets/icons/header-black-logo-small.svg"
+            alt=""
+          />
+          <img
+            *ngIf="!isHeaderWhite"
+            src="../../../assets/icons/header-white-logo-small.svg"
+            alt=""
+          />
+        </div>
+
+        <nav class="header__menu">
+          <ul class="header__menu-flex">
+            <li
+              class="header__menu-item noUserSelect"
+              *ngFor="let item of menuItems"
+              (click)="setSellectedComp(item.componentName)"
+            >
+              {{ item.text }}
+            </li>
+            <li>
+              <button
+                #tooltip="matTooltip"
+                class="header-phone"
+                [matTooltip]="underPhoneText"
+                matTooltipClass="example-tooltip-uppercase"
+                aria-label="Button that shows a red tooltip"
+                (click)="showAttentionAboutCopy()"
+              >
+                <div class="header-phone__icon">
+                  <img
+                    *ngIf="!isHeaderWhite"
+                    src="./assets/icons/phone.svg"
+                    alt="phone"
+                  />
+                  <img
+                    *ngIf="isHeaderWhite"
+                    src="./assets/icons/phoneBlack.svg"
+                    alt="phone"
+                  />
+                </div>
+                <div
+                  class="header-phone__number desktop-number"
+                  (click)="copyNumber()"
+                >
+                  {{ phoneNumber }}
+                </div>
+                <a class="phone-number" href="tel:+375292992929">
+                  <div class="header-phone__number">{{ phoneNumber }}</div></a
+                >
+                <div *ngIf="isCopy" class="copy-attention">
+                  Телефон скопирован
+                </div>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

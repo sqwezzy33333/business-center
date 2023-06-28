@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+@import "./styles/normalize.scss";
+@import "./styles/theme.css";
+@import "./styles/variables.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Montserrat;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0px 10px;
+}
+
+.orange {
+  color: $orangeColor;
+}
+
+.noUserSelect {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 1148px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 940px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    max-width: 100%;
+  }
+}

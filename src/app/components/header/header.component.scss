@@ -1,0 +1,153 @@
+@import "../../../styles/variables.scss";
+
+:host {
+  position: fixed;
+  width: 100%;
+  z-index: 22;
+}
+
+.header {
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  padding: 20px 0px;
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu-item {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 16px;
+
+    &::after {
+      content: "";
+      width: 0px;
+      height: 2px;
+      display: block;
+      background: rgb(255, 255, 255);
+      transition: 300ms;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 40px;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.12);
+  position: relative;
+
+  &:hover {
+    background: rgba(92, 87, 87, 0.52);
+    transition: 0.3s ease-in-out all;
+  }
+
+  &__icon {
+    margin-right: 11px;
+  }
+
+  &__number {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: white;
+  }
+}
+
+.blackText {
+  li,
+  div {
+    color: black !important;
+  }
+
+  .header-phone {
+    background-color: white;
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  .header__menu-item::after {
+    background: rgb(0, 0, 0);
+  }
+}
+
+.phone-number {
+  display: none;
+}
+
+.copy-attention {
+  position: absolute;
+  font-size: 12px;
+  width: 100%;
+  padding: 8px 0px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+  top: 50px;
+  left: 0;
+}
+
+.whiteBg {
+  background-color: rgba($color: #ffffff, $alpha: 0.72);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 896px) {
+  .header__small-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 896px) {
+  .header__menu-item {
+    display: none;
+  }
+
+  .phone-number {
+    display: block;
+  }
+
+  .desktop-number {
+    display: none;
+  }
+
+  .header__big-logo {
+    display: none;
+  }
+
+  .copy-attention{
+    display: none;
+  }
+}
+
+@media (max-width: 363px) {
+  .header-phone {
+    padding: 10px 8px;
+
+    &__icon {
+      margin-right: 8px;
+    }
+  }
+}

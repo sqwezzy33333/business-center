@@ -1,0 +1,65 @@
+<div class="map">
+  <div class="container">
+    <div class="map__padding">
+      <div class="map__text-wrapper" style="margin-bottom: 40px">
+        <div class="map__content">
+          <h1 class="map__title">
+            Удобные транспортные <span class="orange">развязки</span>, самая
+            развитая <span class="orange">транспортная сеть</span><br />со всеми
+            районами города
+          </h1>
+
+          <span class="map__info"
+            >Бизнес центр расположен.....Краткая информация от двух до десяти
+            предложений в абзаце. Краткая информация от двух до десяти
+            предложений в абзаце</span
+          >
+        </div>
+
+        <div class="map__rotated-text rotated-text">
+          <div class="rotated-text__wrapper">
+            <div class="rotated-text__line"></div>
+            <span class="rotated-text__span"
+              >Расположение и <br />
+              Инфраструктура</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="map__wrapper">
+        <div class="map__radio-buttons">
+          <div class="map__range-field" *ngFor="let item of rangeFields">
+            <div
+              [ngClass]="{ activeRadioBtn: item.isChecked }"
+              class="map__radio-label"
+              (click)="checkType(item.placeType)"
+            >
+              <div class="map__radio-icon">
+                <img
+                  [src]="item.iconSrc"
+                  alt="icon"
+                  *ngIf="item.isChecked === false"
+                />
+                <img
+                  [src]="item.iconHoverSrc"
+                  alt="icon"
+                  *ngIf="item.isChecked === true"
+                />
+              </div>
+              <span class="map__radio-span">{{ item.spanText }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map__yandex-map">
+          <map-list
+            [items]="arrayOfMapObjects"
+            *ngIf="rangeFields[1].isChecked"
+            id="map-list"
+          ></map-list>
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
